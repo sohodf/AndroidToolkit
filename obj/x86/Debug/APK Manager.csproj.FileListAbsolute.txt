@@ -1,0 +1,14 @@
+c:\users\itl\documents\visual studio 2010\Projects\APK Manager\APK Manager\bin\Debug\APK Manager.exe
+c:\users\itl\documents\visual studio 2010\Projects\APK Manager\APK Manager\bin\Debug\APK Manager.pdb
+c:\users\itl\documents\visual studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\itl\documents\visual studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK_Manager.Properties.Resources.resources
+c:\users\itl\documents\visual studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\itl\documents\visual studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\itl\documents\visual studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.exe
+c:\users\itl\documents\visual studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.pdb
+c:\users\itl\documents\visual studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK_Manager.tcpADB.resources
+c:\users\itl\documents\visual studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK_Manager.Start.resources
+c:\users\itl\documents\visual studio 2010\Projects\APK Manager\APK Manager\bin\Debug\APK Manager.exe.manifest
+c:\users\itl\documents\visual studio 2010\Projects\APK Manager\APK Manager\bin\Debug\APK Manager.application
+c:\users\itl\documents\visual studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.exe.manifest
+c:\users\itl\documents\visual studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.application
