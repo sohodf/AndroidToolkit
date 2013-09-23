@@ -371,7 +371,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox devicesComboBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox deviceStatusTextBox;
@@ -396,6 +395,7 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.ToolTip ToolTip;
+        public System.Windows.Forms.ComboBox devicesComboBox;
 
     }
 }

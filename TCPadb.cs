@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace APK_Manager
 {
@@ -28,16 +29,30 @@ namespace APK_Manager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool flag = false;
             string ip = textBox1.Text;
             if (ip == "")
                 MessageBox.Show("No IP entered");
             else
             {
                 ip += ":5555";
+                mw.Log("Trying to connect");
                 mw.Log(mw.ExecuteShellCommand("adb connect " + ip));
-                mw.Log("Device " + ip + " connected");
-                mw.FillDevices();
-                mw.Devices
+                ArrayList devices = mw.GetConnectedDevices();
+
+                foreach (string device in devices)
+                    if (device.Equals(ip))
+                    {
+                        mw.Log("Device " + ip + " connected");
+                        mw.FillDevices();
+                        mw.devicesComboBox.SelectedItem = ip;
+                        flag = true;
+                        break;
+                    }
+                
+                if (!flag)
+                    MessageBox.Show("Failed to connect to device");
+
                 this.Close();
             }
             
