@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Start));
             this.label1 = new System.Windows.Forms.Label();
             this.devicesComboBox = new System.Windows.Forms.ComboBox();
@@ -51,10 +52,15 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button9 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -152,6 +158,7 @@
             this.button4.Size = new System.Drawing.Size(130, 50);
             this.button4.TabIndex = 14;
             this.button4.Text = "Uninstall";
+            this.ToolTip.SetToolTip(this.button4, "Uninstalls the wireless controller apk from the machine");
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -242,6 +249,7 @@
             this.button8.Size = new System.Drawing.Size(92, 50);
             this.button8.TabIndex = 18;
             this.button8.Text = "Install ADB";
+            this.ToolTip.SetToolTip(this.button8, "Install ADB on the current machine");
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -250,7 +258,7 @@
             this.groupBox2.Controls.Add(this.button8);
             this.groupBox2.Location = new System.Drawing.Point(281, 127);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(204, 150);
+            this.groupBox2.Size = new System.Drawing.Size(275, 150);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "System";
@@ -258,6 +266,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.button9);
+            this.groupBox3.Controls.Add(this.button10);
             this.groupBox3.Location = new System.Drawing.Point(16, 283);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(259, 141);
@@ -270,7 +279,7 @@
             this.button9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.button9.Location = new System.Drawing.Point(6, 19);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(92, 50);
+            this.button9.Size = new System.Drawing.Size(102, 50);
             this.button9.TabIndex = 19;
             this.button9.Text = "Install Iperf";
             this.button9.UseVisualStyleBackColor = true;
@@ -279,18 +288,54 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::APK_Manager.Properties.Resources.cellphone;
-            this.pictureBox1.Location = new System.Drawing.Point(503, 127);
+            this.pictureBox1.Location = new System.Drawing.Point(567, 142);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(172, 178);
+            this.pictureBox1.Size = new System.Drawing.Size(108, 135);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button11);
+            this.groupBox4.Location = new System.Drawing.Point(281, 283);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(275, 141);
+            this.groupBox4.TabIndex = 21;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Misc";
+            // 
+            // button10
+            // 
+            this.button10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button10.Location = new System.Drawing.Point(6, 75);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(102, 50);
+            this.button10.TabIndex = 19;
+            this.button10.Text = "Wake Device";
+            this.ToolTip.SetToolTip(this.button10, "Send keyevent 26 to the device");
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button11
+            // 
+            this.button11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button11.Location = new System.Drawing.Point(8, 19);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(92, 50);
+            this.button11.TabIndex = 20;
+            this.button11.Text = "Single Core Mode";
+            this.ToolTip.SetToolTip(this.button11, "Change XMM6321 to single core mode for improved stability.\r\nLasts until next rebo" +
+                    "ot.");
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 618);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pictureBox1);
@@ -307,6 +352,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.devicesComboBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Start";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -316,6 +362,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,6 +392,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.ToolTip ToolTip;
 
     }
 }

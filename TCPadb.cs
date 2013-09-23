@@ -37,6 +37,7 @@ namespace APK_Manager
                 mw.Log(mw.ExecuteShellCommand("adb connect " + ip));
                 mw.Log("Device " + ip + " connected");
                 mw.FillDevices();
+                mw.Devices
                 this.Close();
             }
             

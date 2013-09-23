@@ -237,7 +237,7 @@ namespace APK_Manager
             else if (deviceStatusTextBox.Text.Equals("offline"))
                 deviceStatusTextBox.BackColor = System.Drawing.Color.Red;
             else
-                deviceStatusTextBox.BackColor = System.Drawing.Color.Gray;
+                deviceStatusTextBox.BackColor = System.Drawing.Color.DimGray;
         }
 
         //select the apk to install
@@ -415,6 +415,20 @@ namespace APK_Manager
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
 
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Log(ExecuteShellCommand("adb -s " + activeDevice + " shell input keyevent 26"));
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (activeDeviceType.Contains("XMM"))
+                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell echo 0 > /sys/devices/system/cpu/cpu1/online"));
+            else
+                Log("Device not supported!");
+            
         }
 
         }
