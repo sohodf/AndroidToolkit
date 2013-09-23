@@ -23,7 +23,6 @@ namespace APK_Manager
         //this methos handles the actual sending of the command to shell
         public string Execute(string command)
         {
-            mw.UpdateControls(false);
             Process p = new Process();
             ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.CreateNoWindow = true;
@@ -42,12 +41,10 @@ namespace APK_Manager
             if (!p.WaitForExit(adb_timeout))
             {
                 mw.Log("adb timeout - " + ((int)(adb_timeout / 1000)).ToString() + " seconds reached");
-                mw.UpdateControls(true);
                 return string.Empty;
             }
             else
             {                
-                mw.UpdateControls(true);
                 return adbResponse;
             }
 

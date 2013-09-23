@@ -31,9 +31,26 @@ namespace APK_Manager
         //This method recieves a shell command and returns it's result as a string by calling the shellAPI class.
         public string ExecuteShellCommand(string command)
         {
+            UpdateControls(false);
+            string result = null;
             ShellAPI shell = new ShellAPI(this);
-            return shell.Execute(command);
-               
+
+            //no threadding shell command
+            //ShellAPI shell = new ShellAPI(this);
+            //return shell.Execute(command);
+
+            //Threadded solution
+            Thread execute = new Thread(
+                () =>
+                {
+                   result = shell.Execute(command);
+                   
+                });
+            execute.Start();
+            execute.Join();
+            UpdateControls(true);
+            return result;
+                                 
         }
 
         //This method returns an array of connected devices parsed from shell and their status
