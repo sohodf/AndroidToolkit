@@ -31,7 +31,7 @@ namespace APK_Manager
         //This method recieves a shell command and returns it's result as a string by calling the shellAPI class.
         public string ExecuteShellCommand(string command)
         {
-            ShellAPI shell = new ShellAPI(this);            
+            ShellAPI shell = new ShellAPI(this);
             return shell.Execute(command);
                
         }
@@ -278,17 +278,33 @@ namespace APK_Manager
             FillDevices();
         }
 
+        //uninstall the apk, depending on the platform
         private void button4_Click(object sender, EventArgs e)
         {
-            Log("Attempting to mount /system as r/w");
-            Log("This might take some time...");
-            Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c mount -wo remount /system"));
-            Log(ExecuteShellCommand("adb -s " + activeDevice + " uninstall com.intel.mwg"));
-            Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c rm /system/app/mwgActivity-release.apk"));
-            Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c rm /system/app/com.intel.mwg.apk"));
-            Log("Attempted removal from known locations and file names");
-            Log("If not sure, Please check manually");
-        }
+
+            string type = GetActiveDeviceType();
+
+                if (type.Contains("6410") || type.Contains("6430"))
+                {
+                Log("This might take some time...");
+                Log(ExecuteShellCommand("adb -s " + activeDevice + " uninstall com.intel.mwg"));
+                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/mwgActivity-release.apk"));
+                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell  rm /system/app/com.intel.mwg.apk"));
+                }
+                else
+                {
+                Log("Attempting to mount /system as r/w");
+                Log("This might take some time...");
+                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c mount -wo remount /system"));
+                Log(ExecuteShellCommand("adb -s " + activeDevice + " uninstall com.intel.mwg"));
+                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c rm /system/app/mwgActivity-release.apk"));
+                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c rm /system/app/com.intel.mwg.apk"));
+                Log("Attempted removal from known locations and file names");
+                Log("If not sure, Please check manually");
+                }
+                                             
+
+         }
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -376,6 +392,11 @@ namespace APK_Manager
             devicesComboBox.Items.Clear();
             UpdateControls(false);
 
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
 
         }
 

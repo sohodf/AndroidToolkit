@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;
 using System.Threading;
+using System.IO;
 
 namespace APK_Manager
 {
@@ -34,7 +35,7 @@ namespace APK_Manager
             p.StartInfo = startInfo;
 
             p.Start();
-            
+
             string adbResponse = p.StandardOutput.ReadToEnd();
             adbResponse += p.StandardError.ReadToEnd();
 
