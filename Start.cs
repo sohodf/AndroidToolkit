@@ -289,7 +289,7 @@ namespace APK_Manager
                 Log("This might take some time...");
                 Log(ExecuteShellCommand("adb -s " + activeDevice + " uninstall com.intel.mwg"));
                 Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/mwgActivity-release.apk"));
-                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell  rm /system/app/com.intel.mwg.apk"));
+                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/com.intel.mwg.apk"));
                 }
                 else
                 {
