@@ -142,6 +142,9 @@ namespace APK_Manager
                 button4.Enabled = true;
                 button5.Enabled = true;
                 button9.Enabled = true;
+                button10.Enabled = true;
+                button11.Enabled = true;
+
             }
             else
             {
@@ -150,6 +153,8 @@ namespace APK_Manager
                 button4.Enabled = false;
                 button5.Enabled = false;
                 button9.Enabled = false;
+                button10.Enabled = false;
+                button11.Enabled = false;
             }
             
         }
