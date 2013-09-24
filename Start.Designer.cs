@@ -51,9 +51,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
@@ -285,6 +285,18 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // button10
+            // 
+            this.button10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button10.Location = new System.Drawing.Point(6, 75);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(102, 50);
+            this.button10.TabIndex = 19;
+            this.button10.Text = "Wake Device";
+            this.ToolTip.SetToolTip(this.button10, "Send keyevent 26 to the device");
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::APK_Manager.Properties.Resources.cellphone;
@@ -304,18 +316,6 @@
             this.groupBox4.TabIndex = 21;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Misc";
-            // 
-            // button10
-            // 
-            this.button10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button10.Location = new System.Drawing.Point(6, 75);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(102, 50);
-            this.button10.TabIndex = 19;
-            this.button10.Text = "Wake Device";
-            this.ToolTip.SetToolTip(this.button10, "Send keyevent 26 to the device");
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 

@@ -449,6 +449,12 @@ namespace APK_Manager
             
         }
 
+        private void button12_Click(object sender, EventArgs e)
+        {
+            ADB adb = new ADB(this);
+            adb.Show();
+        }
+
         }
 }
         

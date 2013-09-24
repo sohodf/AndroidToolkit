@@ -12,3 +12,4 @@ C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x
 C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.application
 C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.exe
 C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.pdb
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK_Manager.ADB.resources
