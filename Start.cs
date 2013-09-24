@@ -430,7 +430,10 @@ namespace APK_Manager
         private void button11_Click(object sender, EventArgs e)
         {
             if (activeDeviceType.Contains("XMM"))
-                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell echo 0 > /sys/devices/system/cpu/cpu1/online"));
+            {
+                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell " + (char)34 + "echo 0 > /sys/devices/system/cpu/cpu1/online" + (char)34));
+                Log("Changed to single core");
+            }
             else
                 Log("Device not supported!");
             
