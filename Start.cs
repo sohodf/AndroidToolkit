@@ -238,11 +238,21 @@ namespace APK_Manager
         private void deviceStatusTextBox_TextChanged(object sender, EventArgs e)
         {
             if (deviceStatusTextBox.Text.Equals("device"))
+            {
                 deviceStatusTextBox.BackColor = System.Drawing.Color.Green;
+                UpdateControls(true);
+            }
             else if (deviceStatusTextBox.Text.Equals("offline"))
+            {
                 deviceStatusTextBox.BackColor = System.Drawing.Color.Red;
+                UpdateControls(false);
+            }
             else
+            {
                 deviceStatusTextBox.BackColor = System.Drawing.Color.DimGray;
+                UpdateControls(false);
+
+            }
         }
 
         //select the apk to install
