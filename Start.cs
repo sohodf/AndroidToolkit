@@ -385,7 +385,7 @@ namespace APK_Manager
                     File.WriteAllBytes(adbDir + "AdbWinUsbApi.dll", Properties.Resources.AdbWinUsbApi);
                     Log("ADB installed successfully");
                     
-                    string path = Environment.GetEnvironmentVariable("Path", EnvironmentVariableTarget.Machine) + ";" + adbDir;
+                    string path = Environment.GetEnvironmentVariable("Path", EnvironmentVariableTarget.Machine) + ";" + adbDir + ";";
                     Environment.SetEnvironmentVariable("Path", path, EnvironmentVariableTarget.Machine);
                     Log(@"Added C:/ADB to enviroment variable Path");
                     
