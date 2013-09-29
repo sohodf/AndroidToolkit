@@ -436,6 +436,7 @@ namespace APK_Manager
         private void button10_Click(object sender, EventArgs e)
         {
             Log(ExecuteShellCommand("adb -s " + activeDevice + " shell input keyevent 26"));
+            Log("Wake command sent to device");
         }
 
         private void button11_Click(object sender, EventArgs e)
