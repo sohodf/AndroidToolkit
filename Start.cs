@@ -47,6 +47,7 @@ namespace APK_Manager
                    
                 });
             execute.Start();
+            //blocking call, waiting for the thread to terminate
             execute.Join();
             UpdateControls(true);
             return result;

@@ -9,6 +9,7 @@ namespace APK_Manager
 {
     class Install
     {
+        
         //This method installs the apk to dell platforms.
         public static void InstallDell(string ip, Start main)
         {
