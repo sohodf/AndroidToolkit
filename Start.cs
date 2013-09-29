@@ -155,8 +155,12 @@ namespace APK_Manager
         //This method gets active device type
         private string GetActiveDeviceType()
         {
-            string type = "adb -s " + activeDevice + " shell getprop ro.product.model";
-            return(CleanString(ExecuteShellCommand(type)));
+            string getTypeString = "adb -s " + activeDevice + " shell getprop ro.product.model";
+            string type = CleanString(ExecuteShellCommand(getTypeString));
+            if (type.Contains("error"))
+                return "Error! Device unavailable.";
+            else
+             return(type);
         }
         
         //This method enables/disables all controls on the program
@@ -461,7 +465,7 @@ namespace APK_Manager
 
         private void button10_Click(object sender, EventArgs e)
         {
-            Log(ExecuteShellCommandAsync("adb -s " + activeDevice + " shell input keyevent 26"));
+            ExecuteShellCommandAsync("adb -s " + activeDevice + " shell input keyevent 26");
             Log("Wake command sent to device");
         }
 
