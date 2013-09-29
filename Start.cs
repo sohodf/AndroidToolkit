@@ -54,6 +54,32 @@ namespace APK_Manager
                                  
         }
 
+        //This method recieves a shell command and executes it without waiting for response.
+        public string ExecuteShellCommandAsync(string command)
+        {
+            UpdateControls(false);
+            string result = null;
+            ShellAPI shell = new ShellAPI(this);
+
+            //no threadding shell command
+            //ShellAPI shell = new ShellAPI(this);
+            //return shell.Execute(command);
+
+            //Threadded solution
+            Thread execute = new Thread(
+                () =>
+                {
+                    result = shell.Execute(command);
+
+                });
+            execute.Start();
+            //no blocking call, main thread continues.
+            //execute.Join();
+            UpdateControls(true);
+            return result;
+
+        }
+
         //This method returns an array of connected devices parsed from shell and their status
         //If no device is attached, null is returned.
         //Even places contain serials. Odd places contain device status.
@@ -435,7 +461,7 @@ namespace APK_Manager
 
         private void button10_Click(object sender, EventArgs e)
         {
-            Log(ExecuteShellCommand("adb -s " + activeDevice + " shell input keyevent 26"));
+            Log(ExecuteShellCommandAsync("adb -s " + activeDevice + " shell input keyevent 26"));
             Log("Wake command sent to device");
         }
 
@@ -443,7 +469,7 @@ namespace APK_Manager
         {
             if (activeDeviceType.Contains("XMM"))
             {
-                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell " + (char)34 + "echo 0 > /sys/devices/system/cpu/cpu1/online" + (char)34));
+                ExecuteShellCommand("adb -s " + activeDevice + " shell " + (char)34 + "echo 0 > /sys/devices/system/cpu/cpu1/online" + (char)34);
                 Log("Changed to single core");
             }
             else
