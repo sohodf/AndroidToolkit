@@ -473,7 +473,7 @@ namespace APK_Manager
         {
             if (activeDeviceType.Contains("XMM"))
             {
-                ExecuteShellCommand("adb -s " + activeDevice + " shell " + (char)34 + "echo 0 > /sys/devices/system/cpu/cpu1/online" + (char)34);
+                ExecuteShellCommandAsync("adb -s " + activeDevice + " shell " + (char)34 + "echo 0 > /sys/devices/system/cpu/cpu1/online" + (char)34);
                 Log("Changed to single core");
             }
             else
