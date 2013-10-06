@@ -57,7 +57,6 @@ namespace APK_Manager
         //This method recieves a shell command and executes it without waiting for response.
         public string ExecuteShellCommandAsync(string command)
         {
-            UpdateControls(false);
             string result = null;
             ShellAPI shell = new ShellAPI(this);
 
@@ -75,7 +74,6 @@ namespace APK_Manager
             execute.Start();
             //no blocking call, main thread continues.
             //execute.Join();
-            UpdateControls(true);
             return result;
 
         }
@@ -388,9 +386,7 @@ namespace APK_Manager
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Log(ExecuteShellCommand("adb kill-server"));
-            Log("ADB Killed");
-            ClearDevices();
+            backgroundWorker2.RunWorkerAsync();
             
         }
 
@@ -458,11 +454,6 @@ namespace APK_Manager
 
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-        }
-
         private void button10_Click(object sender, EventArgs e)
         {
             ExecuteShellCommandAsync("adb -s " + activeDevice + " shell input keyevent 26");
@@ -486,6 +477,26 @@ namespace APK_Manager
             ADB adb = new ADB(this);
             adb.Show();
         }
+
+        // Restarts the adb daemon
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            this.Invoke(new Action(() => {this.UpdateControls(false);}));
+            ExecuteShellCommandAsync("adb kill-server");
+            this.listBox1.Invoke(new Action(() => { listBox1.Items.Add("Adb server killed"); }));
+            ExecuteShellCommandAsync("adb start-server");
+            this.listBox1.Invoke(new Action(() => { listBox1.Items.Add("Waiting 5 seconds for server to start"); }));
+            System.Threading.Thread.Sleep(5000);
+            this.listBox1.Invoke(new Action(() => { listBox1.Items.Add("Server started"); }));
+            this.Invoke(new Action(() => { this.FillDevices(); }));
+            this.Invoke(new Action(() => { this.UpdateControls(true); }));
+            this.listBox1.Invoke(new Action(() => { listBox1.Items.Add("ADB restarted"); }));
+            
+        }
+
+        
+
+
 
         }
 }

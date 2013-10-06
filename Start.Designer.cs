@@ -56,6 +56,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button11 = new System.Windows.Forms.Button();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -227,7 +228,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(134, 23);
             this.button6.TabIndex = 15;
-            this.button6.Text = "Kill ADB Daemon";
+            this.button6.Text = "Restart ADB";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -330,6 +331,10 @@
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
+            // backgroundWorker2
+            // 
+            this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,6 +401,7 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.ToolTip ToolTip;
         public System.Windows.Forms.ComboBox devicesComboBox;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
 
     }
 }
