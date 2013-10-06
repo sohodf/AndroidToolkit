@@ -456,6 +456,8 @@ namespace APK_Manager
 
         private void button10_Click(object sender, EventArgs e)
         {
+            Log("Command sent");
+            Log("adb -s " + activeDevice + " shell input keyevent 26");
             ExecuteShellCommandAsync("adb -s " + activeDevice + " shell input keyevent 26");
             Log("Wake command sent to device");
         }
@@ -464,6 +466,8 @@ namespace APK_Manager
         {
             if (activeDeviceType.Contains("XMM"))
             {
+                Log("Command sent");
+                Log("adb -s " + activeDevice + " shell " + (char)34 + "echo 0 > /sys/devices/system/cpu/cpu1/online" + (char)34);
                 ExecuteShellCommandAsync("adb -s " + activeDevice + " shell " + (char)34 + "echo 0 > /sys/devices/system/cpu/cpu1/online" + (char)34);
                 Log("Changed to single core");
             }
