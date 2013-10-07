@@ -293,7 +293,7 @@
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(102, 50);
             this.button10.TabIndex = 19;
-            this.button10.Text = "Wake Device";
+            this.button10.Text = "Wake Screen";
             this.ToolTip.SetToolTip(this.button10, "Send keyevent 26 to the device");
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);

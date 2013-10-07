@@ -48,7 +48,7 @@ namespace APK_Manager
                 });
             execute.Start();
             //blocking call, waiting for the thread to terminate
-            execute.Join();
+            execute.Join(10000);
             UpdateControls(true);
             return result;
                                  
@@ -400,11 +400,11 @@ namespace APK_Manager
         {
             try
             {
-                string adbDir = @"C:/ADB/";
+                string adbDir = @"C:\ADB\";
                 if (!(Directory.Exists(adbDir)))
                 {
                     Directory.CreateDirectory(adbDir);
-                    Log(@"C:/ADB/ Directory created successfully");
+                    Log(@"C:\ADB\ Directory created successfully");
                     
                     File.WriteAllBytes(adbDir + "adb.exe", Properties.Resources.adb);
                     File.WriteAllBytes(adbDir + "AdbWinApi.dll", Properties.Resources.AdbWinApi);
@@ -413,12 +413,12 @@ namespace APK_Manager
                     
                     string path = Environment.GetEnvironmentVariable("Path", EnvironmentVariableTarget.Machine) + ";" + adbDir + ";";
                     Environment.SetEnvironmentVariable("Path", path, EnvironmentVariableTarget.Machine);
-                    Log(@"Added C:/ADB to enviroment variable Path");
+                    Log(@"Added C:\ADB to enviroment variable Path");
                     
                 }
                 else
                 {
-                    Log(@"ADB is already installed. Please delete C:/ADB/ if you want to re install");
+                    Log(@"ADB is already installed. Please delete C:\ADB\ if you want to re install");
 
                 }
             }
@@ -495,6 +495,7 @@ namespace APK_Manager
             this.Invoke(new Action(() => { this.FillDevices(); }));
             this.Invoke(new Action(() => { this.UpdateControls(true); }));
             this.listBox1.Invoke(new Action(() => { listBox1.Items.Add("ADB restarted"); }));
+            this.deviceStatusTextBox.Invoke(new Action(() => { this.deviceStatusTextBox.Text = "Device Status"; }));
             
         }
 
