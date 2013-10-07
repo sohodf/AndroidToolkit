@@ -53,10 +53,16 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button11 = new System.Windows.Forms.Button();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button12 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -121,7 +127,7 @@
             this.openApkBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.openApkBtn.Location = new System.Drawing.Point(6, 19);
             this.openApkBtn.Name = "openApkBtn";
-            this.openApkBtn.Size = new System.Drawing.Size(92, 50);
+            this.openApkBtn.Size = new System.Drawing.Size(92, 40);
             this.openApkBtn.TabIndex = 7;
             this.openApkBtn.Text = "Select apk file";
             this.openApkBtn.UseVisualStyleBackColor = true;
@@ -135,17 +141,17 @@
             this.groupBox1.Controls.Add(this.openApkBtn);
             this.groupBox1.Location = new System.Drawing.Point(16, 127);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(259, 150);
+            this.groupBox1.Size = new System.Drawing.Size(233, 111);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "APK Management";
             // 
             // button5
             // 
-            this.button5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button5.Location = new System.Drawing.Point(6, 85);
+            this.button5.Font = new System.Drawing.Font("Arial", 7F);
+            this.button5.Location = new System.Drawing.Point(6, 63);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(92, 50);
+            this.button5.Size = new System.Drawing.Size(92, 39);
             this.button5.TabIndex = 15;
             this.button5.Text = "Install as none sysapp";
             this.button5.UseVisualStyleBackColor = true;
@@ -154,9 +160,9 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button4.Location = new System.Drawing.Point(114, 85);
+            this.button4.Location = new System.Drawing.Point(104, 63);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(130, 50);
+            this.button4.Size = new System.Drawing.Size(116, 39);
             this.button4.TabIndex = 14;
             this.button4.Text = "Uninstall";
             this.ToolTip.SetToolTip(this.button4, "Uninstalls the wireless controller apk from the machine");
@@ -166,9 +172,9 @@
             // install
             // 
             this.install.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.install.Location = new System.Drawing.Point(114, 19);
+            this.install.Location = new System.Drawing.Point(104, 19);
             this.install.Name = "install";
-            this.install.Size = new System.Drawing.Size(130, 50);
+            this.install.Size = new System.Drawing.Size(116, 40);
             this.install.TabIndex = 8;
             this.install.Text = "Install as sysapp";
             this.install.UseVisualStyleBackColor = true;
@@ -245,9 +251,9 @@
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button8.Location = new System.Drawing.Point(8, 19);
+            this.button8.Location = new System.Drawing.Point(8, 29);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(92, 50);
+            this.button8.Size = new System.Drawing.Size(83, 30);
             this.button8.TabIndex = 18;
             this.button8.Text = "Install ADB";
             this.ToolTip.SetToolTip(this.button8, "Install ADB on the current machine");
@@ -257,20 +263,21 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button8);
-            this.groupBox2.Location = new System.Drawing.Point(281, 127);
+            this.groupBox2.Location = new System.Drawing.Point(145, 244);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(275, 150);
+            this.groupBox2.Size = new System.Drawing.Size(104, 180);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "System";
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button11);
             this.groupBox3.Controls.Add(this.button9);
             this.groupBox3.Controls.Add(this.button10);
-            this.groupBox3.Location = new System.Drawing.Point(16, 283);
+            this.groupBox3.Location = new System.Drawing.Point(16, 244);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(259, 141);
+            this.groupBox3.Size = new System.Drawing.Size(117, 180);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Platform";
@@ -280,7 +287,7 @@
             this.button9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.button9.Location = new System.Drawing.Point(6, 19);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(102, 50);
+            this.button9.Size = new System.Drawing.Size(102, 40);
             this.button9.TabIndex = 19;
             this.button9.Text = "Install Iperf";
             this.button9.UseVisualStyleBackColor = true;
@@ -289,9 +296,9 @@
             // button10
             // 
             this.button10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button10.Location = new System.Drawing.Point(6, 75);
+            this.button10.Location = new System.Drawing.Point(6, 65);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(102, 50);
+            this.button10.Size = new System.Drawing.Size(102, 36);
             this.button10.TabIndex = 19;
             this.button10.Text = "Wake Screen";
             this.ToolTip.SetToolTip(this.button10, "Send keyevent 26 to the device");
@@ -308,22 +315,12 @@
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.button11);
-            this.groupBox4.Location = new System.Drawing.Point(281, 283);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(275, 141);
-            this.groupBox4.TabIndex = 21;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Misc";
-            // 
             // button11
             // 
-            this.button11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button11.Location = new System.Drawing.Point(8, 19);
+            this.button11.Font = new System.Drawing.Font("Arial", 8F);
+            this.button11.Location = new System.Drawing.Point(6, 107);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(92, 50);
+            this.button11.Size = new System.Drawing.Size(102, 39);
             this.button11.TabIndex = 20;
             this.button11.Text = "Single Core Mode";
             this.ToolTip.SetToolTip(this.button11, "Change XMM6321 to single core mode for improved stability.\r\nLasts until next rebo" +
@@ -334,6 +331,83 @@
             // backgroundWorker2
             // 
             this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button14);
+            this.groupBox4.Controls.Add(this.button13);
+            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.button12);
+            this.groupBox4.Location = new System.Drawing.Point(256, 127);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(189, 202);
+            this.groupBox4.TabIndex = 21;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Push file";
+            // 
+            // button12
+            // 
+            this.button12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button12.Location = new System.Drawing.Point(103, 19);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(80, 40);
+            this.button12.TabIndex = 8;
+            this.button12.Text = "Select file";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click_1);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 63);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(120, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Select push destination:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Enabled = false;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "/system/bin",
+            "/sysem/data",
+            "/system/lib"});
+            this.comboBox1.Location = new System.Drawing.Point(10, 80);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(173, 21);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // button13
+            // 
+            this.button13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button13.Location = new System.Drawing.Point(10, 19);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(76, 40);
+            this.button13.TabIndex = 11;
+            this.button13.Text = "Mount r/w";
+            this.ToolTip.SetToolTip(this.button13, "File system must be mounted as read/write before files can be pushed");
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // button14
+            // 
+            this.button14.Enabled = false;
+            this.button14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button14.Location = new System.Drawing.Point(49, 117);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(76, 40);
+            this.button14.TabIndex = 12;
+            this.button14.Text = "Push file";
+            this.ToolTip.SetToolTip(this.button14, "File system must be mounted as read/write before files can be pushed");
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // Start
             // 
@@ -361,13 +435,14 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Start";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Android Toolkit by WISE JER 1.3";
+            this.Text = "Android Toolkit by WISE JER 1.31";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,12 +471,18 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.ToolTip ToolTip;
         public System.Windows.Forms.ComboBox devicesComboBox;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button14;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
 
     }
 }

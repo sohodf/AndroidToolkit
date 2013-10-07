@@ -26,6 +26,8 @@ namespace APK_Manager
         public string activeDeviceType = "None";
         //global - execution result
         public string result;
+        //global - file to push
+        public string fileToPush = string.Empty;
         
 
         //This method recieves a shell command and returns it's result as a string by calling the shellAPI class.
@@ -33,7 +35,7 @@ namespace APK_Manager
         {
             UpdateControls(false);
             string result = null;
-            ShellAPI shell = new ShellAPI(this);
+            ShellAPI shell = new ShellAPI();
 
             //no threadding shell command
             //ShellAPI shell = new ShellAPI(this);
@@ -58,7 +60,7 @@ namespace APK_Manager
         public string ExecuteShellCommandAsync(string command)
         {
             string result = null;
-            ShellAPI shell = new ShellAPI(this);
+            ShellAPI shell = new ShellAPI();
 
             //no threadding shell command
             //ShellAPI shell = new ShellAPI(this);
@@ -476,11 +478,6 @@ namespace APK_Manager
             
         }
 
-        private void button12_Click(object sender, EventArgs e)
-        {
-            ADB adb = new ADB(this);
-            adb.Show();
-        }
 
         // Restarts the adb daemon
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
@@ -496,6 +493,55 @@ namespace APK_Manager
             this.Invoke(new Action(() => { this.UpdateControls(true); }));
             this.listBox1.Invoke(new Action(() => { listBox1.Items.Add("ADB restarted"); }));
             this.deviceStatusTextBox.Invoke(new Action(() => { this.deviceStatusTextBox.Text = "Device Status"; }));
+            
+        }
+
+        private void button12_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.InitialDirectory = "C:\\";
+            dialog.Title = "Select the file you want to push";
+            if (dialog.ShowDialog() == DialogResult.OK)
+                fileToPush = dialog.FileName;
+            if (fileToPush == String.Empty)
+                return;
+            //add double quotes.
+            fileToPush = (char)34 + fileToPush + (char)34;
+            Log("file selected. Path is: ");
+            Log(fileToPush);
+            Log("Select directory and press " + (char)34 + "push" + (char)34);
+            comboBox1.Enabled = true;
+            comboBox1.SelectedIndex = 0;
+            button14.Enabled = true;
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            Log("Sending command");
+            Log("adb -s " + activeDevice + " shell su -c mount -wo remount /system");
+            Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c mount -wo remount /system"));
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            if (fileToPush == string.Empty || fileToPush == "")
+            {
+                Log("No file selected");
+            }
+            else
+            {
+                Log("Sending file. This might take time depending on size");
+                string pushCommand = "adb -s " + activeDevice + " push " + fileToPush + " " + comboBox1.Text;
+                backgroundWorker1.RunWorkerAsync(pushCommand);
+
+            }
+                
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string command = (string)e.Argument;
+            this.Invoke(new Action(() => { Log(ExecuteShellCommand(command)); }));
             
         }
 

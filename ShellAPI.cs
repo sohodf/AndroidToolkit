@@ -12,13 +12,6 @@ namespace APK_Manager
     {
         //global - adb timeout in miliseconds
         int adb_timeout = 10000;
-        Start mw;
-
-        public ShellAPI(Start mw)
-        {
-            this.mw = mw;
-        }
-
 
         //this methos handles the actual sending of the command to shell
         public string Execute(string command)
@@ -39,8 +32,7 @@ namespace APK_Manager
             adbResponse += p.StandardError.ReadToEnd();
 
             if (!p.WaitForExit(adb_timeout))
-            {
-                mw.Log("adb timeout - " + ((int)(adb_timeout / 1000)).ToString() + " seconds reached");
+            {                
                 return string.Empty;
             }
             else
