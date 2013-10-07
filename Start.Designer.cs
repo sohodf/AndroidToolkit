@@ -63,6 +63,7 @@
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.button15 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -251,9 +252,9 @@
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button8.Location = new System.Drawing.Point(8, 29);
+            this.button8.Location = new System.Drawing.Point(32, 33);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(83, 30);
+            this.button8.Size = new System.Drawing.Size(119, 55);
             this.button8.TabIndex = 18;
             this.button8.Text = "Install ADB";
             this.ToolTip.SetToolTip(this.button8, "Install ADB on the current machine");
@@ -263,9 +264,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button8);
-            this.groupBox2.Location = new System.Drawing.Point(145, 244);
+            this.groupBox2.Location = new System.Drawing.Point(256, 309);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(104, 180);
+            this.groupBox2.Size = new System.Drawing.Size(189, 115);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "System";
@@ -277,7 +278,7 @@
             this.groupBox3.Controls.Add(this.button10);
             this.groupBox3.Location = new System.Drawing.Point(16, 244);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(117, 180);
+            this.groupBox3.Size = new System.Drawing.Size(233, 180);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Platform";
@@ -285,7 +286,7 @@
             // button9
             // 
             this.button9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button9.Location = new System.Drawing.Point(6, 19);
+            this.button9.Location = new System.Drawing.Point(6, 26);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(102, 40);
             this.button9.TabIndex = 19;
@@ -296,7 +297,7 @@
             // button10
             // 
             this.button10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button10.Location = new System.Drawing.Point(6, 65);
+            this.button10.Location = new System.Drawing.Point(6, 72);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(102, 36);
             this.button10.TabIndex = 19;
@@ -308,7 +309,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::APK_Manager.Properties.Resources.cellphone;
-            this.pictureBox1.Location = new System.Drawing.Point(567, 142);
+            this.pictureBox1.Location = new System.Drawing.Point(516, 190);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(108, 135);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -318,7 +319,7 @@
             // button11
             // 
             this.button11.Font = new System.Drawing.Font("Arial", 8F);
-            this.button11.Location = new System.Drawing.Point(6, 107);
+            this.button11.Location = new System.Drawing.Point(6, 114);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(102, 39);
             this.button11.TabIndex = 20;
@@ -330,10 +331,13 @@
             // 
             // backgroundWorker2
             // 
+            this.backgroundWorker2.WorkerReportsProgress = true;
+            this.backgroundWorker2.WorkerSupportsCancellation = true;
             this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button15);
             this.groupBox4.Controls.Add(this.button14);
             this.groupBox4.Controls.Add(this.button13);
             this.groupBox4.Controls.Add(this.comboBox1);
@@ -341,7 +345,7 @@
             this.groupBox4.Controls.Add(this.button12);
             this.groupBox4.Location = new System.Drawing.Point(256, 127);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(189, 202);
+            this.groupBox4.Size = new System.Drawing.Size(189, 176);
             this.groupBox4.TabIndex = 21;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Push file";
@@ -396,7 +400,7 @@
             // 
             this.button14.Enabled = false;
             this.button14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button14.Location = new System.Drawing.Point(49, 117);
+            this.button14.Location = new System.Drawing.Point(10, 117);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(76, 40);
             this.button14.TabIndex = 12;
@@ -407,7 +411,22 @@
             // 
             // backgroundWorker1
             // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // button15
+            // 
+            this.button15.Enabled = false;
+            this.button15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button15.Location = new System.Drawing.Point(103, 117);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(76, 40);
+            this.button15.TabIndex = 13;
+            this.button15.Text = "Cancel";
+            this.ToolTip.SetToolTip(this.button15, "File system must be mounted as read/write before files can be pushed");
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // Start
             // 
@@ -483,6 +502,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button14;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button button15;
 
     }
 }

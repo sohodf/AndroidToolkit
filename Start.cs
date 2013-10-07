@@ -175,6 +175,8 @@ namespace APK_Manager
                 button9.Enabled = true;
                 button10.Enabled = true;
                 button11.Enabled = true;
+                button12.Enabled = true;
+                button13.Enabled = true;
 
             }
             else
@@ -186,6 +188,8 @@ namespace APK_Manager
                 button9.Enabled = false;
                 button10.Enabled = false;
                 button11.Enabled = false;
+                button12.Enabled = false;
+                button13.Enabled = false;
             }
             
         }
@@ -484,6 +488,7 @@ namespace APK_Manager
         {
             this.Invoke(new Action(() => {this.UpdateControls(false);}));
             ExecuteShellCommandAsync("adb kill-server");
+            System.Threading.Thread.Sleep(2000);
             this.listBox1.Invoke(new Action(() => { listBox1.Items.Add("Adb server killed"); }));
             ExecuteShellCommandAsync("adb start-server");
             this.listBox1.Invoke(new Action(() => { listBox1.Items.Add("Waiting 5 seconds for server to start"); }));
@@ -492,7 +497,7 @@ namespace APK_Manager
             this.Invoke(new Action(() => { this.FillDevices(); }));
             this.Invoke(new Action(() => { this.UpdateControls(true); }));
             this.listBox1.Invoke(new Action(() => { listBox1.Items.Add("ADB restarted"); }));
-            this.deviceStatusTextBox.Invoke(new Action(() => { this.deviceStatusTextBox.Text = "Device Status"; }));
+            this.Invoke(new Action(() => {this.FillDevices(); }));
             
         }
 
@@ -530,6 +535,7 @@ namespace APK_Manager
             }
             else
             {
+                button15.Enabled = true;
                 Log("Sending file. This might take time depending on size");
                 string pushCommand = "adb -s " + activeDevice + " push " + fileToPush + " " + comboBox1.Text;
                 backgroundWorker1.RunWorkerAsync(pushCommand);
@@ -541,12 +547,20 @@ namespace APK_Manager
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             string command = (string)e.Argument;
-            this.Invoke(new Action(() => { Log(ExecuteShellCommand(command)); }));
+            
+            this.Invoke(new Action(() => { ExecuteShellCommandAsync(command); }));
+            this.button15.Invoke(new Action(() => { button15.Enabled = false; }));
+            this.Invoke(new Action(() => { Log("File push finished"); }));
+
             
         }
 
-        
-
+        private void button15_Click(object sender, EventArgs e)
+        {
+            this.backgroundWorker1.CancelAsync();
+            Log("file push cancelled"); 
+            button15.Enabled = false;
+        }
 
 
         }
