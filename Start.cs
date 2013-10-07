@@ -396,6 +396,7 @@ namespace APK_Manager
             
         }
 
+        //clear logs method
         private void button7_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
@@ -404,36 +405,7 @@ namespace APK_Manager
         //this method installs adb on the machine.
         private void button8_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string adbDir = @"C:\ADB\";
-                if (!(Directory.Exists(adbDir)))
-                {
-                    Directory.CreateDirectory(adbDir);
-                    Log(@"C:\ADB\ Directory created successfully");
-                    
-                    File.WriteAllBytes(adbDir + "adb.exe", Properties.Resources.adb);
-                    File.WriteAllBytes(adbDir + "AdbWinApi.dll", Properties.Resources.AdbWinApi);
-                    File.WriteAllBytes(adbDir + "AdbWinUsbApi.dll", Properties.Resources.AdbWinUsbApi);
-                    Log("ADB installed successfully");
-                    
-                    string path = Environment.GetEnvironmentVariable("Path", EnvironmentVariableTarget.Machine) + ";" + adbDir + ";";
-                    Environment.SetEnvironmentVariable("Path", path, EnvironmentVariableTarget.Machine);
-                    Log(@"Added C:\ADB to enviroment variable Path");
-                    
-                }
-                else
-                {
-                    Log(@"ADB is already installed. Please delete C:\ADB\ if you want to re install");
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-
-            
+            Install.InstallADB(this);    
         }
 
         //Iperf installation

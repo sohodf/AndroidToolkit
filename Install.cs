@@ -102,6 +102,40 @@ namespace APK_Manager
             main.Log("Local iperf file not deleted");
         }
 
+        //this method installs adb on the controller machine
+        public static void InstallADB(Start main)
+        {
+            try
+            {
+                string adbDir = @"C:\ADB\";
+                if (!(Directory.Exists(adbDir)))
+                {
+                    Directory.CreateDirectory(adbDir);
+                    main.Log(@"C:\ADB\ Directory created successfully");
+
+                    File.WriteAllBytes(adbDir + "adb.exe", Properties.Resources.adb);
+                    File.WriteAllBytes(adbDir + "AdbWinApi.dll", Properties.Resources.AdbWinApi);
+                    File.WriteAllBytes(adbDir + "AdbWinUsbApi.dll", Properties.Resources.AdbWinUsbApi);
+                    main.Log("ADB installed successfully");
+
+                    string path = Environment.GetEnvironmentVariable("Path", EnvironmentVariableTarget.Machine) + ";" + adbDir + ";";
+                    Environment.SetEnvironmentVariable("Path", path, EnvironmentVariableTarget.Machine);
+                    main.Log(@"Added C:\ADB to enviroment variable Path");
+
+                }
+                else
+                {
+                    main.Log(@"ADB is already installed. Please delete C:\ADB\ if you want to re install");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                main.Log(ex.Message);
+            }
+        }
+
+
 
 
     }
