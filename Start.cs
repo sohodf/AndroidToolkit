@@ -28,8 +28,16 @@ namespace APK_Manager
         public string result;
         //global - file to push
         public string fileToPush = string.Empty;
-        
 
+
+        //constroctor for this class
+        public Start()
+        {
+            InitializeComponent();
+            UpdateControls(false);
+            FillDevices();
+        }
+        
         //This method recieves a shell command and returns it's result as a string by calling the shellAPI class.
         public string ExecuteShellCommand(string command)
         {
@@ -113,6 +121,7 @@ namespace APK_Manager
           }     
            
         }
+        
         //This method recieves a device serial, checks it's status and updated the 'status' box
         private void SetDeviceStatus(string deviceSerial)
         {
@@ -135,6 +144,7 @@ namespace APK_Manager
             return;
 
          }
+        
         //This method prints a line to the log.
         public void Log(string input)
         {
@@ -142,6 +152,7 @@ namespace APK_Manager
             listBox1.SelectedIndex = listBox1.Items.Count - 1;
             listBox1.SelectedIndex = -1;
         }
+        
         //This method cleans a string from escape characters
         private string CleanString(string input)
         {
@@ -152,6 +163,7 @@ namespace APK_Manager
             }
         return input;
         }
+        
         //This method gets active device type
         private string GetActiveDeviceType()
         {
@@ -194,19 +206,7 @@ namespace APK_Manager
             
         }
 
-        
-        public Start()
-        {
-            InitializeComponent();
-            UpdateControls(false);
-            FillDevices();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        //activated upon refresh buttorn press
         private void button1_Click(object sender, EventArgs e)
         {
             FillDevices();
@@ -261,6 +261,7 @@ namespace APK_Manager
             
         }
 
+        //This method updated selected device details upon selection.
         private void Devices_SelectedValueChanged(object sender, EventArgs e)
         {
             activeDevice = devicesComboBox.GetItemText(devicesComboBox.SelectedItem);
@@ -270,6 +271,7 @@ namespace APK_Manager
 
         }
 
+        //updates device status upon selection of serial number
         private void deviceStatusTextBox_TextChanged(object sender, EventArgs e)
         {
             if (deviceStatusTextBox.Text.Equals("device"))
@@ -310,6 +312,7 @@ namespace APK_Manager
             
         }
 
+        //new connection to adb device via adb.
         private void button2_Click(object sender, EventArgs e)
         {
             tcpADB enterIP = new tcpADB(this);
@@ -390,10 +393,10 @@ namespace APK_Manager
             }
         }
 
+        //restarts the adb daemon.
         private void button6_Click(object sender, EventArgs e)
         {
             backgroundWorker2.RunWorkerAsync();
-            
         }
 
         //clear logs method
