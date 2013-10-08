@@ -537,6 +537,14 @@ namespace APK_Manager
             button15.Enabled = false;
         }
 
+        private void button16_Click(object sender, EventArgs e)
+        {
+            Log("Sending command");
+            Log("adb -s " + activeDevice + " shell su -c cat 100 > /sys/devices/platform/nov_cabc.0/leds/lcd-backlight/brightness");
+            Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c cat 100 > /sys/devices/platform/nov_cabc.0/leds/lcd-backlight/brightness"));
+            Log("Brighness set to 100%");
+        }
+
 
         }
 }
