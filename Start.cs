@@ -547,6 +547,19 @@ namespace APK_Manager
             Log("Brighness set to 100%");
         }
 
+        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(listBox1.SelectedItem.ToString());
+                label6.Text = (char)34 + listBox1.SelectedItem.ToString() + (char)34 + " has been copied to the clipboard";
+            }
+            catch (Exception noValueToCopy)
+            {
+                label6.Text = "No value selected";
+            }
+        }
+
 
         }
 }

@@ -65,6 +65,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button12 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -108,9 +109,9 @@
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label2.Location = new System.Drawing.Point(12, 441);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 19);
+            this.label2.Size = new System.Drawing.Size(318, 19);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Log:";
+            this.label2.Text = "Log: (double click a line to copy it to the clipboard)";
             // 
             // deviceStatusTextBox
             // 
@@ -229,6 +230,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(659, 134);
             this.listBox1.TabIndex = 14;
+            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
             // 
             // button6
             // 
@@ -441,11 +443,20 @@
             this.backgroundWorker1.WorkerSupportsCancellation = true;
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 615);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 13);
+            this.label6.TabIndex = 22;
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 618);
+            this.ClientSize = new System.Drawing.Size(682, 640);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -516,6 +527,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Label label6;
 
     }
 }
