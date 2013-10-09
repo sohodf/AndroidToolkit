@@ -295,6 +295,7 @@
             this.button16.Size = new System.Drawing.Size(102, 40);
             this.button16.TabIndex = 21;
             this.button16.Text = "Set Full Brightness";
+            this.ToolTip.SetToolTip(this.button16, "Set device brighness to 100%, ignoring GUI setting.");
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
@@ -434,6 +435,7 @@
             this.button12.Size = new System.Drawing.Size(80, 40);
             this.button12.TabIndex = 8;
             this.button12.Text = "Select file";
+            this.ToolTip.SetToolTip(this.button12, "You must select a file before you can push it");
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click_1);
             // 
