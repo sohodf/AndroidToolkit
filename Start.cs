@@ -547,6 +547,7 @@ namespace APK_Manager
             Log("Brighness set to 100%");
         }
 
+        //allows copying tex from the log to the clipboard.
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             try
