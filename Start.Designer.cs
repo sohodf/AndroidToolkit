@@ -108,7 +108,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label2.Location = new System.Drawing.Point(12, 441);
+            this.label2.Location = new System.Drawing.Point(18, 437);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(318, 19);
             this.label2.TabIndex = 4;
@@ -117,6 +117,7 @@
             // deviceStatusTextBox
             // 
             this.deviceStatusTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.deviceStatusTextBox.ForeColor = System.Drawing.Color.Tan;
             this.deviceStatusTextBox.Location = new System.Drawing.Point(374, 21);
             this.deviceStatusTextBox.Multiline = true;
             this.deviceStatusTextBox.Name = "deviceStatusTextBox";
@@ -160,6 +161,7 @@
             this.button5.Size = new System.Drawing.Size(116, 38);
             this.button5.TabIndex = 15;
             this.button5.Text = "Install as none sysapp";
+            this.ToolTip.SetToolTip(this.button5, "No root action will be available!");
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -232,17 +234,17 @@
             this.listBox1.BackColor = System.Drawing.SystemColors.MenuText;
             this.listBox1.ForeColor = System.Drawing.Color.Red;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(11, 472);
+            this.listBox1.Location = new System.Drawing.Point(22, 472);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(607, 134);
+            this.listBox1.Size = new System.Drawing.Size(596, 134);
             this.listBox1.TabIndex = 14;
             this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(483, 437);
+            this.button6.Location = new System.Drawing.Point(520, 437);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(134, 23);
+            this.button6.Size = new System.Drawing.Size(97, 23);
             this.button6.TabIndex = 15;
             this.button6.Text = "Restart ADB";
             this.button6.UseVisualStyleBackColor = true;
@@ -250,9 +252,9 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(336, 437);
+            this.button7.Location = new System.Drawing.Point(414, 437);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(134, 23);
+            this.button7.Size = new System.Drawing.Size(97, 23);
             this.button7.TabIndex = 16;
             this.button7.Text = "Clear Log";
             this.button7.UseVisualStyleBackColor = true;
