@@ -57,8 +57,13 @@ namespace APK_Manager
                    
                 });
             execute.Start();
+            
             //blocking call, waiting for the thread to terminate
             execute.Join(10000);
+            
+            //while (execute.IsAlive)
+            //     Thread.Sleep(10);
+
             UpdateControls(true);
             return result;
                                  

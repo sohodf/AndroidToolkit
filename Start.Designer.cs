@@ -59,11 +59,11 @@
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button12 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label6 = new System.Windows.Forms.Label();
             this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
@@ -384,6 +384,18 @@
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
+            // button12
+            // 
+            this.button12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button12.Location = new System.Drawing.Point(103, 19);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(80, 40);
+            this.button12.TabIndex = 8;
+            this.button12.Text = "Select file";
+            this.ToolTip.SetToolTip(this.button12, "You must select a file before you can push it");
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click_1);
+            // 
             // backgroundWorker2
             // 
             this.backgroundWorker2.WorkerReportsProgress = true;
@@ -427,18 +439,6 @@
             this.label5.Size = new System.Drawing.Size(120, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Select push destination:";
-            // 
-            // button12
-            // 
-            this.button12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button12.Location = new System.Drawing.Point(103, 19);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(80, 40);
-            this.button12.TabIndex = 8;
-            this.button12.Text = "Select file";
-            this.ToolTip.SetToolTip(this.button12, "You must select a file before you can push it");
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click_1);
             // 
             // backgroundWorker1
             // 
