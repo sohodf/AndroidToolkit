@@ -353,30 +353,8 @@ namespace APK_Manager
         //uninstall the apk, depending on the platform
         private void button4_Click(object sender, EventArgs e)
         {
-
-            string type = GetActiveDeviceType();
-
-                if (type.Contains("6410") || type.Contains("6430"))
-                {
-                Log("This might take some time...");
-                Log(ExecuteShellCommand("adb -s " + activeDevice + " uninstall com.intel.mwg"));
-                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/mwgActivity-release.apk"));
-                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/com.intel.mwg.apk"));
-                }
-                else
-                {
-                Log("Attempting to mount /system as r/w");
-                Log("This might take some time...");
-                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c mount -wo remount /system"));
-                Log(ExecuteShellCommand("adb -s " + activeDevice + " uninstall com.intel.mwg"));
-                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c rm /system/app/mwgActivity-release.apk"));
-                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c rm /system/app/com.intel.mwg.apk"));
-                Log("Attempted removal from known locations and file names");
-                Log("If not sure, Please check manually");
-                }
-                                             
-
-         }
+            backgroundWorker3.RunWorkerAsync();                                   
+        }
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -561,7 +539,36 @@ namespace APK_Manager
             }
         }
 
+        //uninstallation - new thread
+        private void backgroundWorker3_DoWork(object sender, DoWorkEventArgs e)
+        {
 
+            if (activeDeviceType.Contains("6410") || activeDeviceType.Contains("6430"))
+            {
+
+                this.Invoke(new Action(() => { Log("This might take some time..."); }));
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " uninstall com.intel.mwg")); }));
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/mwgActivity-release.apk")); }));
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/com.intel.mwg.apk")); }));                      
+            }
+
+            else
+            {
+                this.Invoke(new Action(() => { Log("Attempting to mount /system as r/w"); }));  
+                this.Invoke(new Action(() => { Log("This might take some time..."); }));  
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c mount -wo remount /system")); }));  
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " uninstall com.intel.mwg")); }));
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/mwgActivity-release.apk")); }));
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/com.intel.mwg.apk")); }));   
+            }
+
+            this.Invoke(new Action(() => { Log("Attempted removal from known locations and file names"); }));
+            this.Invoke(new Action(() => { Log("If not sure, Please check manually"); }));
+            
+            
         }
+
+
+      }
 }
         
