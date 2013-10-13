@@ -41,7 +41,7 @@ namespace APK_Manager
         //This method recieves a shell command and returns it's result as a string by calling the shellAPI class.
         public string ExecuteShellCommand(string command)
         {
-            UpdateControls(false);
+            //UpdateControls(false);
             string result = null;
             ShellAPI shell = new ShellAPI();
 
@@ -64,7 +64,7 @@ namespace APK_Manager
             //while (execute.IsAlive)
             //     Thread.Sleep(10);
 
-            UpdateControls(true);
+           // UpdateControls(true);
             return result;
                                  
         }
@@ -328,7 +328,7 @@ namespace APK_Manager
 
         private void install_Click_1(object sender, EventArgs e)
         {
-
+            UpdateControls(false);
             string type = GetActiveDeviceType();
 
             if (strFileName.Equals(String.Empty))
@@ -344,6 +344,7 @@ namespace APK_Manager
                 else Log("Device Not Supported");
                         
             }
+            UpdateControls(true);
 
                 
         }
@@ -367,6 +368,7 @@ namespace APK_Manager
                 Log("No APK selected" + Environment.NewLine);
             else
             {
+                UpdateControls(false);
                 string message = "Warning - This will not install the app as root, preventing access to aiplane mode, reboot etc. \n Do you want to continue?";
 
                 DialogResult dr = MessageBox.Show(message, "warning", MessageBoxButtons.YesNo);
@@ -376,6 +378,7 @@ namespace APK_Manager
                 else
                     return;
             }
+            UpdateControls(true);
         }
 
         //restarts the adb daemon.
@@ -393,19 +396,22 @@ namespace APK_Manager
         //this method installs adb on the machine.
         private void button8_Click(object sender, EventArgs e)
         {
-            Install.InstallADB(this);    
+            UpdateControls(false);
+            Install.InstallADB(this);
+            UpdateControls(true);
         }
 
         //Iperf installation
         private void button9_Click(object sender, EventArgs e)
         {
+            UpdateControls(false);
             if (activeDeviceType.Contains("XMM"))
                 Install.InstallIperfXMM(activeDevice, this);
             else if (GetActiveDeviceType().Contains("Nexus 4") || GetActiveDeviceType().Contains("Nexus 7"))
                 Install.InstallIperfNexus(activeDevice, this);
             else
                 Log("Device not supported!");
-
+            UpdateControls(true);
 
 
 
@@ -422,14 +428,17 @@ namespace APK_Manager
 
         private void button10_Click(object sender, EventArgs e)
         {
+            UpdateControls(false);
             Log("Command sent");
             Log("adb -s " + activeDevice + " shell input keyevent 26");
             ExecuteShellCommandAsync("adb -s " + activeDevice + " shell input keyevent 26");
             Log("Wake command sent to device");
+            UpdateControls(true);
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
+            UpdateControls(false);
             if (activeDeviceType.Contains("XMM"))
             {
                 Log("Command sent");
@@ -439,7 +448,7 @@ namespace APK_Manager
             }
             else
                 Log("Device not supported!");
-            
+            UpdateControls(true);
         }
 
 
@@ -482,13 +491,16 @@ namespace APK_Manager
 
         private void button13_Click(object sender, EventArgs e)
         {
+            UpdateControls(false);
             Log("Sending command");
             Log("adb -s " + activeDevice + " shell su -c mount -wo remount /system");
             Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c mount -wo remount /system"));
+            UpdateControls(true);
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
+            UpdateControls(false);
             if (fileToPush == string.Empty || fileToPush == "")
             {
                 Log("No file selected");
@@ -501,6 +513,7 @@ namespace APK_Manager
                 backgroundWorker1.RunWorkerAsync(pushCommand);
 
             }
+            UpdateControls(true);
                 
         }
 
@@ -524,10 +537,12 @@ namespace APK_Manager
 
         private void button16_Click(object sender, EventArgs e)
         {
+            UpdateControls(false);
             Log("Sending command");
             Log("adb -s " + activeDevice + " shell " + (char)34 + "echo 255 > /sys/class/leds/lcd-backlight/brightness" + (char)34);
             Log(ExecuteShellCommand("adb -s " + activeDevice + " shell " + (char)34 + "echo 255 > /sys/class/leds/lcd-backlight/brightness" + (char)34));
             Log("Brighness set to 100%");
+            UpdateControls(true);
         }
 
         //allows copying tex from the log to the clipboard.
@@ -547,7 +562,7 @@ namespace APK_Manager
         //uninstallation - new thread
         private void backgroundWorker3_DoWork(object sender, DoWorkEventArgs e)
         {
-
+            this.Invoke(new Action (() => this.UpdateControls(false)));
             if (activeDeviceType.Contains("6410") || activeDeviceType.Contains("6430"))
             {
 
@@ -569,7 +584,7 @@ namespace APK_Manager
 
             this.Invoke(new Action(() => { Log("Attempted removal from known locations and file names"); }));
             this.Invoke(new Action(() => { Log("If not sure, Please check manually"); }));
-            
+            this.Invoke(new Action(() => this.UpdateControls(true)));
             
         }
 

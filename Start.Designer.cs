@@ -156,7 +156,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Arial", 7F);
-            this.button5.Location = new System.Drawing.Point(468, 23);
+            this.button5.Location = new System.Drawing.Point(467, 21);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(116, 38);
             this.button5.TabIndex = 15;
