@@ -453,7 +453,13 @@ namespace APK_Manager
             UpdateControls(true);
         }
 
+        //switches the platform to single cpu mode.
         private void button11_Click(object sender, EventArgs e)
+        {
+            SingelCPUMode();
+        }
+
+        private void SingelCPUMode()
         {
             UpdateControls(false);
             if (activeDeviceType.Contains("XMM"))
@@ -467,8 +473,7 @@ namespace APK_Manager
                 Log("Device not supported!");
             UpdateControls(true);
         }
-
-
+        
         // Restarts the adb daemon
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -486,7 +491,8 @@ namespace APK_Manager
             this.Invoke(new Action(() => {this.FillDevices(); }));
             
         }
-
+        
+        //select file to push
         private void button12_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -508,6 +514,12 @@ namespace APK_Manager
 
         private void button13_Click(object sender, EventArgs e)
         {
+            MountSys();
+        }
+
+        //mounts /system as r/w
+        private void MountSys()
+        {
             UpdateControls(false);
             Log("Sending command");
             Log("adb -s " + activeDevice + " shell su -c mount -wo remount /system");
@@ -516,6 +528,12 @@ namespace APK_Manager
         }
 
         private void button14_Click(object sender, EventArgs e)
+        {
+            PushFile();
+        }
+
+        //pushes the active file to the selected path
+        private void PushFile()
         {
             UpdateControls(false);
             if (fileToPush == string.Empty || fileToPush == "")
@@ -531,7 +549,6 @@ namespace APK_Manager
 
             }
             UpdateControls(true);
-                
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
