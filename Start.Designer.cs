@@ -37,9 +37,9 @@
             this.deviceStatusTextBox = new System.Windows.Forms.TextBox();
             this.openApkBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.install = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -136,6 +136,7 @@
             this.openApkBtn.Size = new System.Drawing.Size(116, 38);
             this.openApkBtn.TabIndex = 7;
             this.openApkBtn.Text = "Select apk file";
+            this.ToolTip.SetToolTip(this.openApkBtn, "Select app to install");
             this.openApkBtn.UseVisualStyleBackColor = true;
             this.openApkBtn.Click += new System.EventHandler(this.openApkBtn_Click);
             // 
@@ -152,18 +153,6 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "APK Management";
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Arial", 7F);
-            this.button5.Location = new System.Drawing.Point(467, 21);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(116, 38);
-            this.button5.TabIndex = 15;
-            this.button5.Text = "Install as none sysapp";
-            this.ToolTip.SetToolTip(this.button5, "No root action will be available!");
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -185,8 +174,21 @@
             this.install.Size = new System.Drawing.Size(116, 38);
             this.install.TabIndex = 8;
             this.install.Text = "Install as sysapp";
+            this.ToolTip.SetToolTip(this.install, "Install the selected app as a system app");
             this.install.UseVisualStyleBackColor = true;
             this.install.Click += new System.EventHandler(this.install_Click_1);
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Arial", 7F);
+            this.button5.Location = new System.Drawing.Point(467, 21);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(116, 38);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "Install as none sysapp";
+            this.ToolTip.SetToolTip(this.button5, "Install the selected application as a none system app.");
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label4
             // 

@@ -327,6 +327,7 @@ namespace APK_Manager
             enterIP.Show();
         }
 
+        //selects the propper installation path according to the device detected and initiates it.
         private void install_Click_1(object sender, EventArgs e)
         {
             UpdateControls(false);
@@ -352,7 +353,13 @@ namespace APK_Manager
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Log(ExecuteShellCommand("adb disconnect " + activeDevice));
+            DisconnectDevice(activeDevice);
+        }
+
+        //disconnects a devices it gets it's string
+        private void DisconnectDevice(string aDevice)
+        {
+            Log(ExecuteShellCommand("adb disconnect " + aDevice));
             Log(activeDevice + " Disconnected");
             FillDevices();
         }
@@ -364,6 +371,12 @@ namespace APK_Manager
         }
 
         private void button5_Click(object sender, EventArgs e)
+        {
+            ApkNoSysappInstall();
+        }
+
+        //installs the selected apk as a none sys-app.
+        private void ApkNoSysappInstall()
         {
             if (strFileName.Equals(String.Empty))
                 Log("No APK selected" + Environment.NewLine);
@@ -413,9 +426,6 @@ namespace APK_Manager
             else
                 Log("Device not supported!");
             UpdateControls(true);
-
-
-
         }
 
         // clears the devices list box
@@ -427,7 +437,13 @@ namespace APK_Manager
 
         }
 
+        //sends a wake screen command to the active device.
         private void button10_Click(object sender, EventArgs e)
+        {
+            WakeScreen();
+        }
+
+        private void WakeScreen()
         {
             UpdateControls(false);
             Log("Command sent");
