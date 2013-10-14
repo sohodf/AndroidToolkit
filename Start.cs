@@ -65,6 +65,7 @@ namespace APK_Manager
             //     Thread.Sleep(10);
 
            // UpdateControls(true);
+            
             return result;
                                  
         }
@@ -536,6 +537,12 @@ namespace APK_Manager
         }
 
         private void button16_Click(object sender, EventArgs e)
+        {
+            SetFullBrighness();
+        }
+
+        //sends a command to set full brightness on the attached platform.
+        private void SetFullBrighness()
         {
             UpdateControls(false);
             Log("Sending command");
