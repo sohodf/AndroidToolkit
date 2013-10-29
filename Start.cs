@@ -614,12 +614,12 @@ namespace APK_Manager
 
             else
             {
-                this.Invoke(new Action(() => { Log("Attempting to mount /system as r/w"); }));  
-                this.Invoke(new Action(() => { Log("This might take some time..."); }));  
-                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c mount -wo remount /system")); }));  
+                this.Invoke(new Action(() => { Log("Attempting to mount /system as r/w"); }));
+                this.Invoke(new Action(() => { Log("This might take some time..."); }));
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c mount -wo remount /system")); }));
                 this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " uninstall com.intel.mwg")); }));
-                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/mwgActivity-release.apk")); }));
-                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/com.intel.mwg.apk")); }));   
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c rm /system/app/mwgActivity-release.apk")); }));
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c rm /system/app/com.intel.mwg.apk")); }));
             }
 
             this.Invoke(new Action(() => { Log("Attempted removal from known locations and file names"); }));
