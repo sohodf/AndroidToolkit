@@ -390,7 +390,10 @@ namespace APK_Manager
                 if (dr == DialogResult.Yes)
                     Install.InstallNotSysapp(activeDevice, this);
                 else
+                {
+                    UpdateControls(true);
                     return;
+                }
             }
             UpdateControls(true);
         }
