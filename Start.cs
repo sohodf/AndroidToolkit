@@ -511,6 +511,16 @@ namespace APK_Manager
             Log(fileToPush);
             Log("Select directory and press " + (char)34 + "push" + (char)34);
             comboBox1.Enabled = true;
+            comboBox1.Items.Clear();
+            //add push targets
+            comboBox1.Items.Add("/system/bin");
+            comboBox1.Items.Add("/sysem/data");
+            comboBox1.Items.Add("/system/lib");
+            //handle xmm push destinations
+            if (activeDeviceType.Contains("6321"))
+            {
+                comboBox1.Items.Add("/storage/sdcard0");
+            }
             comboBox1.SelectedIndex = 0;
             button14.Enabled = true;
         }
