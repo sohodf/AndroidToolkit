@@ -27,7 +27,7 @@ namespace APK_Manager
         //global - execution result
         public string result;
         //global - file to push
-        public string fileToPush = string.Empty;
+        public string[] filesToPush = null;
 
 
         //constroctor for this class
@@ -500,15 +500,22 @@ namespace APK_Manager
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.InitialDirectory = "C:\\";
-            dialog.Title = "Select the file you want to push";
+            dialog.Title = "Select the files you want to push";
+            dialog.Multiselect = true;
             if (dialog.ShowDialog() == DialogResult.OK)
-                fileToPush = dialog.FileName;
-            if (fileToPush == String.Empty)
+                filesToPush = dialog.FileNames;
+            if (filesToPush == null)
                 return;
             //add double quotes.
-            fileToPush = (char)34 + fileToPush + (char)34;
+            for (int i = 0; i < filesToPush.Length; i++)
+            {
+                filesToPush[i] = (char)34 + filesToPush[i] + (char)34;
+            }
             Log("file selected. Path is: ");
-            Log(fileToPush);
+            foreach (string path in filesToPush)
+            {
+                Log(path); 
+            }
             Log("Select directory and press " + (char)34 + "push" + (char)34);
             comboBox1.Enabled = true;
             comboBox1.Items.Clear();
@@ -522,6 +529,8 @@ namespace APK_Manager
                 comboBox1.Items.Add("/storage/sdcard0");
             }
             comboBox1.SelectedIndex = 0;
+
+
             button14.Enabled = true;
         }
 
@@ -549,16 +558,24 @@ namespace APK_Manager
         private void PushFile()
         {
             UpdateControls(false);
-            if (fileToPush == string.Empty || fileToPush == "")
+            if (filesToPush == null)
             {
                 Log("No file selected");
             }
             else
             {
                 button15.Enabled = true;
-                Log("Sending file. This might take time depending on size");
-                string pushCommand = "adb -s " + activeDevice + " push " + fileToPush + " " + comboBox1.Text;
-                backgroundWorker1.RunWorkerAsync(pushCommand);
+                Log("Sending files. This might take time depending on size");
+                foreach (string path in filesToPush)
+                {
+                    string pushCommand = "adb -s " + activeDevice + " push " + path + " " + comboBox1.Text;
+                    backgroundWorker1.RunWorkerAsync(pushCommand);
+                    while (backgroundWorker1.IsBusy)
+                    {
+                        Thread.Sleep(5000);
+                    }
+                    Log("File: " + path + " Copied");
+                }
 
             }
             UpdateControls(true);
