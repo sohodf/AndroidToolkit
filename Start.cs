@@ -43,12 +43,20 @@ namespace APK_Manager
         {
             //UpdateControls(false);
             //string result = null;
+            
             ShellAPI shell = new ShellAPI();
+            try
+            {
+                return shell.Execute(command);
+            }
+            catch (Exception shellTimeOut)
+            {
+                return "";
+            }
 
             //no threadding shell command
             //ShellAPI shell = new ShellAPI(this);
-            return shell.Execute(command);
-
+            
             //Threadded solution
             //Thread execute = new Thread(
             //    () =>

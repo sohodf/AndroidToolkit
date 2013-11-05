@@ -29,7 +29,6 @@ namespace APK_Manager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            bool flag = false;
             string ip = textBox1.Text;
             if (ip == "")
                 MessageBox.Show("No IP entered");
@@ -37,23 +36,26 @@ namespace APK_Manager
             {
                 ip += ":5555";
                 mw.Log("Trying to connect");
-                mw.Log(mw.ExecuteShellCommand("adb connect " + ip));
-                ArrayList devices = mw.GetConnectedDevices();
+                if ((mw.ExecuteShellCommand("adb connect " + ip).Contains("unable")))
+                {
+                    mw.Log("Failed to connect to " + ip);
+                }
+                else
+                {
+                    mw.Log("Connected to: " + ip);
+                    ArrayList devices = mw.GetConnectedDevices();
 
-                foreach (string device in devices)
-                    if (device.Equals(ip))
-                    {
-                        mw.Log("Device " + ip + " connected");
-                        mw.FillDevices();
-                        mw.devicesComboBox.SelectedItem = ip;
-                        flag = true;
-                        break;
-                    }
+                    foreach (string device in devices)
+                        if (device.Equals(ip))
+                        {
+                            mw.Log("Device " + ip + " connected");
+                            mw.FillDevices();
+                            mw.devicesComboBox.SelectedItem = ip;
+                            this.Close();
+                            break;
+                        }
+                }
                 
-                if (!flag)
-                    MessageBox.Show("Failed to connect to device");
-
-                this.Close();
             }
             
         }
