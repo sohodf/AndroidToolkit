@@ -11,7 +11,7 @@ namespace APK_Manager
     class ShellAPI
     {
         //global - adb timeout in miliseconds
-        int adb_timeout = 10000;
+        int adb_timeout = 5000;
 
         //this methos handles the actual sending of the command to shell
         public string Execute(string command)

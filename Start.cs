@@ -42,31 +42,29 @@ namespace APK_Manager
         public string ExecuteShellCommand(string command)
         {
             //UpdateControls(false);
-            string result = null;
+            //string result = null;
             ShellAPI shell = new ShellAPI();
 
             //no threadding shell command
             //ShellAPI shell = new ShellAPI(this);
-            //return shell.Execute(command);
+            return shell.Execute(command);
 
             //Threadded solution
-            Thread execute = new Thread(
-                () =>
-                {
-                   result = shell.Execute(command);
+            //Thread execute = new Thread(
+            //    () =>
+            //    {
+            //       result = shell.Execute(command);
                    
-                });
-            execute.Start();
+            //    });
+            //execute.Start();
             
             //blocking call, waiting for the thread to terminate
-            execute.Join(10000);
+
             
             //while (execute.IsAlive)
-            //     Thread.Sleep(10);
-
-           // UpdateControls(true);
-            
-            return result;
+            //hread.Sleep(10);
+            //UpdateControls(true);
+            //return result;
                                  
         }
 
@@ -511,7 +509,7 @@ namespace APK_Manager
             {
                 filesToPush[i] = (char)34 + filesToPush[i] + (char)34;
             }
-            Log("file selected. Path is: ");
+            Log("files selected. Path is: ");
             foreach (string path in filesToPush)
             {
                 Log(path); 
@@ -520,13 +518,17 @@ namespace APK_Manager
             comboBox1.Enabled = true;
             comboBox1.Items.Clear();
             //add push targets
-            comboBox1.Items.Add("/system/bin");
-            comboBox1.Items.Add("/sysem/data");
-            comboBox1.Items.Add("/system/lib");
+            comboBox1.Items.Add("/system/bin/");
+            comboBox1.Items.Add("/sysem/data/");
+            comboBox1.Items.Add("/system/lib/");
             //handle xmm push destinations
-            if (activeDeviceType.Contains("6321"))
+            if (activeDeviceType.Contains("6321") || activeDeviceType.Contains("Nexus"))
             {
-                comboBox1.Items.Add("/storage/sdcard0");
+                comboBox1.Items.Add("/storage/sdcard0/");
+            }
+            else if (activeDeviceType.Contains("6410") || activeDeviceType.Contains("6430"))
+            {
+                comboBox1.Items.Add("/sdcard/");
             }
             comboBox1.SelectedIndex = 0;
 
@@ -566,30 +568,35 @@ namespace APK_Manager
             {
                 button15.Enabled = true;
                 Log("Sending files. This might take time depending on size");
-                foreach (string path in filesToPush)
-                {
-                    string pushCommand = "adb -s " + activeDevice + " push " + path + " " + comboBox1.Text;
-                    backgroundWorker1.RunWorkerAsync(pushCommand);
-                    while (backgroundWorker1.IsBusy)
-                    {
-                        Thread.Sleep(5000);
-                    }
-                    Log("File: " + path + " Copied");
-                }
-
+                //start the thread sending the files
+                ArrayList pars = new ArrayList();
+                pars.Add(filesToPush);
+                pars.Add(comboBox1.Text);
+                backgroundWorker1.RunWorkerAsync(pars);
             }
             UpdateControls(true);
         }
 
+        //actual pushing of files to the android machine
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            string command = (string)e.Argument;
-            
-            this.Invoke(new Action(() => { ExecuteShellCommandAsync(command); }));
-            this.button15.Invoke(new Action(() => { button15.Enabled = false; }));
-            this.Invoke(new Action(() => { Log("File push finished"); }));
+            ArrayList pars = (ArrayList)e.Argument;
+            string[] files = (string[])pars[0];
+            string dest = (string)pars[1];
 
-            
+            if (backgroundWorker1.CancellationPending == true)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            foreach (string path in files)
+            {
+                string pushCommand = "adb -s " + activeDevice + " push " + path + " " +dest;
+                this.Invoke(new Action(() => { ExecuteShellCommand(pushCommand); }));
+                this.Invoke(new Action(() => { Log("File: " + path + " Copied"); }));
+            }
+            this.button15.Invoke(new Action(() => { button15.Enabled = false; }));
         }
 
         private void button15_Click(object sender, EventArgs e)

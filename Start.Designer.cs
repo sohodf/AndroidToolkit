@@ -369,7 +369,7 @@
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(76, 40);
             this.button14.TabIndex = 12;
-            this.button14.Text = "Push file";
+            this.button14.Text = "Push files";
             this.ToolTip.SetToolTip(this.button14, "File system must be mounted as read/write before files can be pushed");
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button14_Click);
@@ -390,11 +390,11 @@
             // button12
             // 
             this.button12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button12.Location = new System.Drawing.Point(103, 19);
+            this.button12.Location = new System.Drawing.Point(101, 19);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(80, 40);
             this.button12.TabIndex = 8;
-            this.button12.Text = "Select file";
+            this.button12.Text = "Select files";
             this.ToolTip.SetToolTip(this.button12, "You must select a file before you can push it");
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click_1);
@@ -496,7 +496,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Start";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Android Toolkit by WISE JER 1.5";
+            this.Text = "Android Toolkit by WISE JER 1.6";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
