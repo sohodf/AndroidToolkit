@@ -282,7 +282,12 @@ namespace APK_Manager
             SetDeviceStatus(activeDevice);
             activeDeviceType = GetActiveDeviceType();
             label4.Text = activeDeviceType;
-
+            //reset push file section
+            button14.Enabled = false;
+            button12.Enabled = false;
+            comboBox1.Items.Clear();
+            comboBox1.Enabled = false;
+            filesToPush = null;
         }
 
         //updates device status upon selection of serial number
@@ -671,6 +676,10 @@ namespace APK_Manager
             this.Invoke(new Action(() => { Log("If not sure, Please check manually"); }));
             this.Invoke(new Action(() => this.UpdateControls(true)));
             
+        }
+
+        private void devicesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
 
 

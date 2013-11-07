@@ -93,6 +93,7 @@
             this.devicesComboBox.Name = "devicesComboBox";
             this.devicesComboBox.Size = new System.Drawing.Size(212, 21);
             this.devicesComboBox.TabIndex = 1;
+            this.devicesComboBox.SelectedIndexChanged += new System.EventHandler(this.devicesComboBox_SelectedIndexChanged);
             this.devicesComboBox.SelectedValueChanged += new System.EventHandler(this.Devices_SelectedValueChanged);
             // 
             // button1
