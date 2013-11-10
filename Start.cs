@@ -367,7 +367,7 @@ namespace APK_Manager
             DisconnectDevice(activeDevice);
         }
 
-        //disconnects a devices it gets it's string
+        //disconnects a devices it gets it's strings
         private void DisconnectDevice(string aDevice)
         {
             Log(ExecuteShellCommand("adb disconnect " + aDevice));
