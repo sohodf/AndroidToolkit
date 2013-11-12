@@ -539,7 +539,7 @@ namespace APK_Manager
             {
                 comboBox1.Items.Add("/storage/sdcard0/");
             }
-            else if (activeDeviceType.Contains("6410") || activeDeviceType.Contains("6430"))
+            else if (activeDeviceType.Contains("6410") || activeDeviceType.Contains("6430") || activeDeviceType.Contains("I9505"))
             {
                 comboBox1.Items.Add("/sdcard/");
             }
