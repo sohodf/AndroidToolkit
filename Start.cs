@@ -352,7 +352,7 @@ namespace APK_Manager
                     Install.InstallDell(activeDevice, this);
                 else if (type.Contains("XMM"))
                     Install.InstallXMM(activeDevice, this);
-                else if (type.Contains("Nexus 4") || type.Contains("Nexus 7") || type.Contains("saltbay"))
+                else if (type.Contains("Nexus 4") || type.Contains("Nexus 7") || type.Contains("saltbay") || type.Contains("I9505"))
                     Install.InstallNexus4(activeDevice, this);
                 else Log("Device Not Supported");
                         
