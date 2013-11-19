@@ -535,7 +535,7 @@ namespace APK_Manager
             comboBox1.Items.Add("/sysem/data/");
             comboBox1.Items.Add("/system/lib/");
             comboBox1.Items.Add("/data/");
-            //handle xmm push destinations
+            //handle xmm push destination
             if (activeDeviceType.Contains("6321") || activeDeviceType.Contains("Nexus"))
             {
                 comboBox1.Items.Add("/storage/sdcard0/");
