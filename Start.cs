@@ -435,7 +435,7 @@ namespace APK_Manager
             UpdateControls(false);
             if (activeDeviceType.Contains("XMM"))
                 Install.InstallIperfXMM(activeDevice, this);
-            else if (GetActiveDeviceType().Contains("Nexus 4") || GetActiveDeviceType().Contains("Nexus 7"))
+            else if (GetActiveDeviceType().Contains("Nexus 4") || GetActiveDeviceType().Contains("Nexus 7") || GetActiveDeviceType().Contains("I9505"))
                 Install.InstallIperfNexus(activeDevice, this);
             else
                 Log("Device not supported!");
