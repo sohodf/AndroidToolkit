@@ -145,6 +145,30 @@ namespace APK_Manager
             main.Log("Local iperf file not deleted");
         }
 
+        
+        //this method installs iperf on HsB Platform 
+        public static void InstallIperfHsB(string ip, Start main)
+        {
+            main.Log("Device selected: " + main.activeDeviceType + "@" + ip);
+            string iperfDir = @"C:/";
+            File.WriteAllBytes(iperfDir + "iperf", Properties.Resources.iperfX86);
+            main.Log("Trying to mount system as r/w");
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c mount -wo remount /system"));
+            main.Log("Trying to push iperf");
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " push c:/iperf /sdcard/"));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c cp /sdcard/iperf /system/bin"));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c chmod 777 /system/bin/iperf"));
+            main.Log("Iperf for X86 installed");
+            main.Log("Delete local iperf file");
+            if (File.Exists(@"C:\iperf"))
+            {
+                File.Delete(@"C:\iperf");
+                main.Log("Local iperf file deleted");
+                return;
+            }
+            main.Log("Local iperf file not deleted");
+        }
+
         //this method installs adb on the controller machine
         public static void InstallADB(Start main)
         {

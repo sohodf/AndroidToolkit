@@ -22,7 +22,7 @@ namespace APK_Manager.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace APK_Manager.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("APK_Manager.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace APK_Manager.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -60,37 +60,44 @@ namespace APK_Manager.Properties {
             }
         }
         
-        internal static byte[] adb {
+        public static byte[] adb {
             get {
                 object obj = ResourceManager.GetObject("adb", resourceCulture);
                 return ((byte[])(obj));
             }
         }
         
-        internal static byte[] AdbWinApi {
+        public static byte[] AdbWinApi {
             get {
                 object obj = ResourceManager.GetObject("AdbWinApi", resourceCulture);
                 return ((byte[])(obj));
             }
         }
         
-        internal static byte[] AdbWinUsbApi {
+        public static byte[] AdbWinUsbApi {
             get {
                 object obj = ResourceManager.GetObject("AdbWinUsbApi", resourceCulture);
                 return ((byte[])(obj));
             }
         }
         
-        internal static System.Drawing.Bitmap cellphone {
+        public static System.Drawing.Bitmap cellphone {
             get {
                 object obj = ResourceManager.GetObject("cellphone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
-        internal static byte[] iperfARM {
+        public static byte[] iperfARM {
             get {
                 object obj = ResourceManager.GetObject("iperfARM", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        public static byte[] iperfX86 {
+            get {
+                object obj = ResourceManager.GetObject("iperfX86", resourceCulture);
                 return ((byte[])(obj));
             }
         }
