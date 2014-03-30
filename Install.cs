@@ -71,10 +71,10 @@ namespace APK_Manager
             //installation
             main.Log("Device selected: " + main.activeDeviceType + "@" + ip);
             main.Log("Trying to mount system as r/w");
-            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c mount -wo remount /system"));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c " + (char)34 + "mount -wo remount /system" + (char)34));
             main.Log("Trying to push APK");
             main.Log(main.ExecuteShellCommand("adb -s " + ip + " push " + main.strFileName + " /sdcard/"));
-            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c cp /sdcard/" + file + " /system/priv-app/"));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c " + (char)34 + "cp /sdcard/" + file + " /system/priv-app/" + (char)34));
             main.Log("APK installation finished. Please check device");
             main.Log("If installation failed, please make sure you are root");
 
