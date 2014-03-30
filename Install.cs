@@ -95,7 +95,7 @@ namespace APK_Manager
             main.Log("Trying to push APK");
             main.Log(main.ExecuteShellCommand("adb -s " + ip + " push " + main.strFileName + " /sdcard/"));
             main.Log("Copying app to sdcard");
-            main.Log("adb -s " + ip + " shell cp /sdcard/" + file + " /system/app/");
+            main.Log("adb -s " + ip + " shell cp /sdcard/" + file + " /system/priv-app/");
             main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell cp /sdcard/" + file + " /system/priv-app/"));
             main.Log("APK installation finished. Please check device");
             main.Log("If installation failed, please make sure you are root");
