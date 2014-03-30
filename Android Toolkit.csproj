@@ -154,10 +154,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <Content Include="Resources\adb.exe" />
+    <Content Include="Resources\AdbWinApi.dll" />
+    <Content Include="Resources\AdbWinUsbApi.dll" />
     <None Include="Resources\cellphone.png" />
-    <None Include="Resources\AdbWinUsbApi.dll" />
-    <None Include="Resources\AdbWinApi.dll" />
-    <None Include="Resources\adb.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

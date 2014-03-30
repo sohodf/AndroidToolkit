@@ -352,9 +352,12 @@ namespace APK_Manager
                     Install.InstallDell(activeDevice, this);
                 else if (type.Contains("XMM"))
                     Install.InstallXMM(activeDevice, this);
-                else if (type.Contains("Nexus 4") || type.Contains("Nexus 7") || type.Contains("saltbay") || type.Contains("I9505") || type.Contains("9300"))
+                else if (type.Contains("Nexus 4") || type.Contains("Nexus 7") || type.Contains("saltbay") || type.Contains("I9505") || type.Contains("I9300"))
                     Install.InstallNexus4(activeDevice, this);
+                else if (type.Contains("Harris"))
+                    Install.InstallHSB(activeDevice, this);
                 else Log("Device Not Supported");
+
                         
             }
             UpdateControls(true);
@@ -438,7 +441,7 @@ namespace APK_Manager
             else if (GetActiveDeviceType().Contains("Nexus 4") || GetActiveDeviceType().Contains("Nexus 7") || GetActiveDeviceType().Contains("I9505"))
                 Install.InstallIperfNexus(activeDevice, this);
             else
-                Log("Device not supported!");
+                Log("Device not supported for iperf installation!");
             UpdateControls(true);
         }
 
@@ -654,7 +657,7 @@ namespace APK_Manager
         private void backgroundWorker3_DoWork(object sender, DoWorkEventArgs e)
         {
             this.Invoke(new Action (() => this.UpdateControls(false)));
-            if (activeDeviceType.Contains("6410") || activeDeviceType.Contains("6430"))
+            if (activeDeviceType.Contains("6410") || activeDeviceType.Contains("6430") || activeDeviceType.Contains("Harris"))
             {
 
                 this.Invoke(new Action(() => { Log("This might take some time..."); }));

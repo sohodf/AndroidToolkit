@@ -59,6 +59,28 @@ namespace APK_Manager
 
         }
 
+
+        //this method installls the apk to Nexus4 Device
+        public static void InstallHSB(string ip, Start main)
+        {
+            //getting file name from path
+            string path = main.strFileName;
+            path = path.Replace("\"", "");
+            string file = Path.GetFileName(path);
+            main.Log("File name is: " + file);
+
+            //installation
+            main.Log("Device selected: " + main.activeDeviceType + "@" + ip);
+            main.Log("Trying to push APK");
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " push " + main.strFileName + " /sdcard/"));
+            main.Log("Copying app to sdcard");
+            main.Log("adb -s " + ip + " shell cp /sdcard/" + file + " /system/app/");
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell cp /sdcard/" + file + " /system/app/"));
+            main.Log("APK installation finished. Please check device");
+            main.Log("If installation failed, please make sure you are root");
+
+        }
+
         //this method installs iperf on XMM platfrom
         public static void InstallIperfXMM(string ip, Start main)
         {
