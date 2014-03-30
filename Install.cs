@@ -153,11 +153,15 @@ namespace APK_Manager
             string iperfDir = @"C:/";
             File.WriteAllBytes(iperfDir + "iperf", Properties.Resources.iperfX86);
             main.Log("Trying to mount system as r/w");
-            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c mount -wo remount /system"));
+            main.Log("adb -s " + ip + " shell su -c " + (char)34 + "mount -wo remount /system" + (char)34);
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c " + (char)34 + "mount -wo remount /system" + (char)34));
             main.Log("Trying to push iperf");
-            main.Log(main.ExecuteShellCommand("adb -s " + ip + " push c:/iperf /sdcard/"));
-            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c cp /sdcard/iperf /system/bin"));
-            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c chmod 777 /system/bin/iperf"));
+            main.Log(("adb -s " + ip + " push c:/iperf /sdcard/"));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c " + (char)34 + "cp /sdcard/iperf /system/bin" + (char)34));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c " + (char)34 + "cp /sdcard/iperf /system/bin" + (char)34));
+            main.Log(("adb -s " + ip + " shell su -c cp /sdcard/iperf /system/bin"));
+            main.Log(("adb -s " + ip + " shell su -c " + (char)34 + "chmod 777 /system/bin/iperf"+ (char)34));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c " + (char)34 + "chmod 777 /system/bin/iperf" + (char)34));
             main.Log("Iperf for X86 installed");
             main.Log("Delete local iperf file");
             if (File.Exists(@"C:\iperf"))

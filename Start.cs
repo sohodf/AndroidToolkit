@@ -457,7 +457,7 @@ namespace APK_Manager
                 Install.InstallIperfXMM(activeDevice, this);
             else if (GetActiveDeviceType().Contains("Nexus 4") || GetActiveDeviceType().Contains("Nexus 7") || GetActiveDeviceType().Contains("I9505"))
                 Install.InstallIperfNexus(activeDevice, this);
-            else if (GetActiveDeviceType().Contains("Harris"))
+            else if (GetActiveDeviceType().Contains("Harris") && GetAndroidVersion().Contains("4.4"))
                 Install.InstallIperfHsB(activeDevice, this);
             else
                 Log("Device not supported for iperf installation!");
