@@ -282,6 +282,7 @@ namespace APK_Manager
             SetDeviceStatus(activeDevice);
             activeDeviceType = GetActiveDeviceType();
             label4.Text = activeDeviceType;
+            label7.Text = GetAndroidVersion();
             //reset push file section
             button14.Enabled = false;
             button12.Enabled = false;
@@ -289,6 +290,19 @@ namespace APK_Manager
             comboBox1.Enabled = false;
             filesToPush = null;
         }
+
+        //get the android version in a string format
+
+        private string GetAndroidVersion()
+        {
+            string getOsString = "adb -s " + activeDevice + " shell getprop ro.build.version.release";
+            string os = CleanString(ExecuteShellCommand(getOsString));
+            if (os.Contains("error"))
+                return "Error! Device unavailable.";
+            else
+                return (os); 
+        }
+
 
         //updates device status upon selection of serial number
         private void deviceStatusTextBox_TextChanged(object sender, EventArgs e)
@@ -343,6 +357,7 @@ namespace APK_Manager
         {
             UpdateControls(false);
             string type = GetActiveDeviceType();
+            string os = GetAndroidVersion();
 
             if (strFileName.Equals(String.Empty))
                 Log("No APK selected" + Environment.NewLine);
@@ -352,9 +367,11 @@ namespace APK_Manager
                     Install.InstallDell(activeDevice, this);
                 else if (type.Contains("XMM"))
                     Install.InstallXMM(activeDevice, this);
+                else if ((type.Contains("Nexus 4") || type.Contains("Nexus 7") || type.Contains("saltbay") || type.Contains("I9505") || type.Contains("I9300")) && os.Contains("4.4"))
+                    Install.InstallNexus4KK(activeDevice, this);
                 else if (type.Contains("Nexus 4") || type.Contains("Nexus 7") || type.Contains("saltbay") || type.Contains("I9505") || type.Contains("I9300"))
                     Install.InstallNexus4(activeDevice, this);
-                else if (type.Contains("Harris"))
+                else if (type.Contains("Harris") || os.Contains("4.4"))
                     Install.InstallHSB(activeDevice, this);
                 else Log("Device Not Supported");
 
@@ -663,7 +680,9 @@ namespace APK_Manager
                 this.Invoke(new Action(() => { Log("This might take some time..."); }));
                 this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " uninstall com.intel.mwg")); }));
                 this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/mwgActivity-release.apk")); }));
-                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/com.intel.mwg.apk")); }));                      
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/com.intel.mwg.apk")); }));
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/priv-app/mwgActivity-release.apk")); }));
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/priv-app/com.intel.mwg.apk")); }));             
             }
 
             else

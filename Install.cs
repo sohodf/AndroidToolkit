@@ -59,6 +59,27 @@ namespace APK_Manager
 
         }
 
+        //this method installls the apk to Nexus4 Device
+        public static void InstallNexus4KK(string ip, Start main)
+        {
+            //getting file name from path
+            string path = main.strFileName;
+            path = path.Replace("\"", "");
+            string file = Path.GetFileName(path);
+            main.Log("File name is: " + file);
+
+            //installation
+            main.Log("Device selected: " + main.activeDeviceType + "@" + ip);
+            main.Log("Trying to mount system as r/w");
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c mount -wo remount /system"));
+            main.Log("Trying to push APK");
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " push " + main.strFileName + " /sdcard/"));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c cp /sdcard/" + file + " /system/priv-app/"));
+            main.Log("APK installation finished. Please check device");
+            main.Log("If installation failed, please make sure you are root");
+
+        }
+
 
         //this method installls the apk to Nexus4 Device
         public static void InstallHSB(string ip, Start main)
@@ -75,7 +96,7 @@ namespace APK_Manager
             main.Log(main.ExecuteShellCommand("adb -s " + ip + " push " + main.strFileName + " /sdcard/"));
             main.Log("Copying app to sdcard");
             main.Log("adb -s " + ip + " shell cp /sdcard/" + file + " /system/app/");
-            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell cp /sdcard/" + file + " /system/app/"));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell cp /sdcard/" + file + " /system/priv-app/"));
             main.Log("APK installation finished. Please check device");
             main.Log("If installation failed, please make sure you are root");
 

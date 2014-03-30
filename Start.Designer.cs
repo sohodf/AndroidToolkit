@@ -67,6 +67,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -312,7 +314,7 @@
             this.button11.TabIndex = 20;
             this.button11.Text = "Single Core Mode";
             this.ToolTip.SetToolTip(this.button11, "Change XMM6321 to single core mode for improved stability.\r\nLasts until next rebo" +
-                    "ot.");
+        "ot.");
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
@@ -358,7 +360,7 @@
             this.button13.TabIndex = 11;
             this.button13.Text = "Mount r/w";
             this.ToolTip.SetToolTip(this.button13, "File system must be mounted as read/write before files can be pushed\r\nSkip if alr" +
-                    "eady mounted. Anyway, can\'t hurt.");
+        "eady mounted. Anyway, can\'t hurt.");
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
@@ -470,12 +472,34 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Log (double click line to copy)";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label2.Location = new System.Drawing.Point(18, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 19);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "OS Version:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label7.Location = new System.Drawing.Point(118, 86);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 19);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "None";
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(639, 640);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox4);
@@ -549,6 +573,8 @@
         private System.Windows.Forms.Label label6;
         private System.ComponentModel.BackgroundWorker backgroundWorker3;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label7;
 
     }
 }
