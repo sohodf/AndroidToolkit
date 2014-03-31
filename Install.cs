@@ -81,7 +81,7 @@ namespace APK_Manager
         }
 
 
-        //this method installls the apk to Nexus4 Device
+        //this method installls the apk to hsb Device
         public static void InstallHSB(string ip, Start main)
         {
             //getting file name from path

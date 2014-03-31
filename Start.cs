@@ -371,8 +371,8 @@ namespace APK_Manager
                     Install.InstallNexus4KK(activeDevice, this);
                 else if (type.Contains("Nexus 4") || type.Contains("Nexus 7") || type.Contains("saltbay") || type.Contains("I9505") || type.Contains("I9300"))
                     Install.InstallNexus4(activeDevice, this);
-                else if (type.Contains("Harris") || os.Contains("4.4"))
-                    Install.InstallHSB(activeDevice, this);
+                else if (type.Contains("Harris") && os.Contains("4.4"))
+                    Install.InstallNexus4KK(activeDevice, this);
                 else Log("Device Not Supported");
 
                         
@@ -686,7 +686,7 @@ namespace APK_Manager
         private void backgroundWorker3_DoWork(object sender, DoWorkEventArgs e)
         {
             this.Invoke(new Action (() => this.UpdateControls(false)));
-            if (activeDeviceType.Contains("6410") || activeDeviceType.Contains("6430") || activeDeviceType.Contains("Harris"))
+            if (activeDeviceType.Contains("6410") || activeDeviceType.Contains("6430"))
             {
 
                 this.Invoke(new Action(() => { Log("This might take some time..."); }));
@@ -695,6 +695,16 @@ namespace APK_Manager
                 this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/app/com.intel.mwg.apk")); }));
                 this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/priv-app/mwgActivity-release.apk")); }));
                 this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/priv-app/com.intel.mwg.apk")); }));             
+            }
+
+            else if (GetAndroidVersion().Contains("4.4"))
+            {
+                this.Invoke(new Action(() => { Log("Attempting to mount /system as r/w"); }));
+                this.Invoke(new Action(() => { Log("This might take some time..."); }));
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c " + (char)34 + " mount -wo remount /system" + (char)34)); }));
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " uninstall com.intel.mwg")); }));
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c " + (char)34 + "rm /system/priv-app/mwgActivity-release.apk" + (char)34)); }));
+                this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c " + (char)34 + "rm /system/priv-app/com.intel.mwg.apk" + (char)34)); }));
             }
 
             else
@@ -706,6 +716,7 @@ namespace APK_Manager
                 this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c rm /system/app/mwgActivity-release.apk")); }));
                 this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c rm /system/app/com.intel.mwg.apk")); }));
             }
+
 
             this.Invoke(new Action(() => { Log("Attempted removal from known locations and file names"); }));
             this.Invoke(new Action(() => { Log("If not sure, Please check manually"); }));
