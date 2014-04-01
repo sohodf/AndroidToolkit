@@ -414,6 +414,7 @@
             this.groupBox4.TabIndex = 21;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Push file";
+            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // comboBox1
             // 

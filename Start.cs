@@ -562,7 +562,7 @@ namespace APK_Manager
             {
                 comboBox1.Items.Add("/storage/sdcard0/");
             }
-            else if (activeDeviceType.Contains("6410") || activeDeviceType.Contains("6430") || activeDeviceType.Contains("I9505"))
+            else if (activeDeviceType.Contains("6410") || activeDeviceType.Contains("6430") || activeDeviceType.Contains("I9505") || activeDeviceType.Contains("Harris"))
             {
                 comboBox1.Items.Add("/sdcard/");
             }
@@ -726,6 +726,11 @@ namespace APK_Manager
 
         private void devicesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
         }
 
 
