@@ -156,10 +156,11 @@ namespace APK_Manager
             main.Log("adb -s " + ip + " shell su -c " + (char)34 + "mount -wo remount /system" + (char)34);
             main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c " + (char)34 + "mount -wo remount /system" + (char)34));
             main.Log("Trying to push iperf");
-            main.Log(("adb -s " + ip + " push c:/iperf /sdcard/"));
-            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c " + (char)34 + "cp /sdcard/iperf /system/bin" + (char)34));
-            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c " + (char)34 + "cp /sdcard/iperf /system/bin" + (char)34));
-            main.Log(("adb -s " + ip + " shell su -c cp /sdcard/iperf /system/bin"));
+            main.Log(("adb -s " + ip + " push c:\\iperf /sdcard/"));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " push c:\\iperf /sdcard/"));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c " + (char)34 + "cp /sdcard/iperf /system/bin/" + (char)34));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c " + (char)34 + "cp /sdcard/iperf /system/bin/" + (char)34));
+            main.Log(("adb -s " + ip + " shell su -c cp /sdcard/iperf /system/bin/"));
             main.Log(("adb -s " + ip + " shell su -c " + (char)34 + "chmod 777 /system/bin/iperf"+ (char)34));
             main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell su -c " + (char)34 + "chmod 777 /system/bin/iperf" + (char)34));
             main.Log("Iperf for X86 installed");
