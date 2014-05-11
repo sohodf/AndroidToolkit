@@ -371,7 +371,7 @@ namespace APK_Manager
                     Install.InstallNexus4KK(activeDevice, this);
                 else if (type.Contains("Nexus 4") || type.Contains("Nexus 7") || type.Contains("saltbay") || type.Contains("I9505") || type.Contains("I9300"))
                     Install.InstallNexus4(activeDevice, this);
-                else if (type.Contains("Harris") && os.Contains("4.4"))
+                else if ((type.Contains("Harris") || (type.Contains("bigcore"))) && os.Contains("4.4"))
                     Install.InstallNexus4KK(activeDevice, this);
                 else Log("Device Not Supported");
 
@@ -457,7 +457,7 @@ namespace APK_Manager
                 Install.InstallIperfXMM(activeDevice, this);
             else if (GetActiveDeviceType().Contains("Nexus 4") || GetActiveDeviceType().Contains("Nexus 7") || GetActiveDeviceType().Contains("I9505"))
                 Install.InstallIperfNexus(activeDevice, this);
-            else if (GetActiveDeviceType().Contains("Harris") && GetAndroidVersion().Contains("4.4"))
+            else if ((GetActiveDeviceType().Contains("Harris") || (GetActiveDeviceType().Contains("bigcore"))) && GetAndroidVersion().Contains("4.4"))
                 Install.InstallIperfHsB(activeDevice, this);
             else
                 Log("Device not supported for iperf installation!");
@@ -729,6 +729,11 @@ namespace APK_Manager
         }
 
         private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
