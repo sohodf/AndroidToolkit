@@ -371,7 +371,7 @@ namespace APK_Manager
                     Install.InstallNexus4KK(activeDevice, this);
                 else if (type.Contains("Nexus 4") || type.Contains("Nexus 7") || type.Contains("saltbay") || type.Contains("I9505") || type.Contains("I9300"))
                     Install.InstallNexus4(activeDevice, this);
-                else if ((type.Contains("Harris") || (type.Contains("bigcore"))) && os.Contains("4.4"))
+                else if ((type.Contains("Harris") || (type.Contains("bigcore"))) && os.Contains("4.4") || type.Contains("mofd"))
                     Install.InstallNexus4KK(activeDevice, this);
                 else Log("Device Not Supported");
 
@@ -459,6 +459,8 @@ namespace APK_Manager
                 Install.InstallIperfNexus(activeDevice, this);
             else if ((GetActiveDeviceType().Contains("Harris") || (GetActiveDeviceType().Contains("bigcore"))) && GetAndroidVersion().Contains("4.4"))
                 Install.InstallIperfHsB(activeDevice, this);
+            else if ((GetActiveDeviceType().Contains("Sofia")))
+                Install.InstallIperfSofia(activeDevice, this);
             else
                 Log("Device not supported for iperf installation!");
             UpdateControls(true);
