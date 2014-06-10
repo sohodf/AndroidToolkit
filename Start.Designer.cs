@@ -175,12 +175,12 @@
             // 
             // button5
             // 
-            this.button5.Font = new System.Drawing.Font("Arial", 7F);
+            this.button5.Font = new System.Drawing.Font("Arial", 9F);
             this.button5.Location = new System.Drawing.Point(467, 21);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(116, 38);
             this.button5.TabIndex = 15;
-            this.button5.Text = "Install as none sysapp";
+            this.button5.Text = "ADB Install";
             this.ToolTip.SetToolTip(this.button5, "Install the selected application as a none system app.");
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -524,6 +524,7 @@
             this.Name = "Start";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Android Toolkit by WISE JER 1.9";
+            this.Load += new System.EventHandler(this.Start_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);

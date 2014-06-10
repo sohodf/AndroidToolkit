@@ -128,7 +128,7 @@ namespace APK_Manager
                       devices.Remove(devices[i]);
                       i = 0;
                   }
-              UpdateControls(true);
+              //UpdateControls(true);
               return devices;
           }     
            
@@ -289,6 +289,14 @@ namespace APK_Manager
             comboBox1.Items.Clear();
             comboBox1.Enabled = false;
             filesToPush = null;
+            //handles no special instalaltion flow on KK
+            if (GetAndroidVersion().Contains("4.4"))
+            {
+                install.Enabled = false;
+                Log("Only adb installtion is supported on android 4.4 and up");
+                Log("A platform system key signed apk is required");
+            }
+
         }
 
         //get the android version in a string format
@@ -363,7 +371,13 @@ namespace APK_Manager
                 Log("No APK selected" + Environment.NewLine);
             else
             {
-                if (type.Contains("6410") || type.Contains("6430"))
+                if (os.Contains("4.4"))
+                {
+                    Log("KK and up only supports adb install with a system key singed app");
+                    Log("Attempting to use adb install");
+                    Install.InstallNotSysapp(activeDevice, this);
+                }
+                else if (type.Contains("6410") || type.Contains("6430"))
                     Install.InstallDell(activeDevice, this);
                 else if (type.Contains("XMM"))
                     Install.InstallXMM(activeDevice, this);
@@ -371,8 +385,7 @@ namespace APK_Manager
                     Install.InstallNexus4KK(activeDevice, this);
                 else if (type.Contains("Nexus 4") || type.Contains("Nexus 7") || type.Contains("saltbay") || type.Contains("I9505") || type.Contains("I9300"))
                     Install.InstallNexus4(activeDevice, this);
-                else if ((type.Contains("Harris") || (type.Contains("bigcore"))) && os.Contains("4.4") || type.Contains("mofd"))
-                    Install.InstallNexus4KK(activeDevice, this);
+
                 else Log("Device Not Supported");
 
                         
@@ -415,7 +428,6 @@ namespace APK_Manager
             {
                 UpdateControls(false);
                 string message = "Warning - This will not install the app as root, preventing access to aiplane mode, reboot etc. \n Do you want to continue?";
-
                 DialogResult dr = MessageBox.Show(message, "warning", MessageBoxButtons.YesNo);
 
                 if (dr == DialogResult.Yes)
@@ -736,6 +748,11 @@ namespace APK_Manager
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Start_Load(object sender, EventArgs e)
         {
 
         }

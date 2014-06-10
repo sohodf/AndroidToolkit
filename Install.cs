@@ -34,7 +34,7 @@ namespace APK_Manager
         //this method installs the app as not sysapp
         public static void InstallNotSysapp(string ip, Start main)
         {
-            main.Log("Installing as NONE SYSTEM APP");
+            main.Log("Using adb install...");
             main.Log(main.ExecuteShellCommand("adb -s " + ip + " install " + main.strFileName));
         }
 
