@@ -192,8 +192,9 @@ namespace APK_Manager
         {
             if (ctrlStat)
             {
+                if (!GetAndroidVersion().Contains("4.4"))
+                    install.Enabled = true;
                 openApkBtn.Enabled = true;
-                install.Enabled = true;
                 button4.Enabled = true;
                 button5.Enabled = true;
                 button9.Enabled = true;
@@ -422,23 +423,32 @@ namespace APK_Manager
         //installs the selected apk as a none sys-app.
         private void ApkNoSysappInstall()
         {
-            if (strFileName.Equals(String.Empty))
-                Log("No APK selected" + Environment.NewLine);
-            else
+            try
             {
-                UpdateControls(false);
-                string message = "Warning - This will not install the app as root, preventing access to aiplane mode, reboot etc. \n Do you want to continue?";
-                DialogResult dr = MessageBox.Show(message, "warning", MessageBoxButtons.YesNo);
-
-                if (dr == DialogResult.Yes)
-                    Install.InstallNotSysapp(activeDevice, this);
+                if (strFileName.Equals(String.Empty))
+                    Log("No APK selected" + Environment.NewLine);
                 else
                 {
-                    UpdateControls(true);
-                    return;
+                    UpdateControls(false);
+                    if (!GetAndroidVersion().Contains("4.4"))
+                    {
+                        string message = "Warning - This will not install the app as root, preventing access to aiplane mode, reboot etc. \n Do you want to continue?";
+                        DialogResult dr = MessageBox.Show(message, "warning", MessageBoxButtons.YesNo);
+                        if (dr == DialogResult.Yes)
+                            Install.InstallNotSysapp(activeDevice, this);
+                        else
+                        {
+                            return;
+                        }
+                    }
+                    else
+                        Install.InstallNotSysapp(activeDevice, this);
                 }
             }
-            UpdateControls(true);
+            finally
+            {
+                UpdateControls(true);
+            }
         }
 
         //restarts the adb daemon.
