@@ -479,7 +479,8 @@ namespace APK_Manager
                 Install.InstallIperfXMM(activeDevice, this);
             else if (GetActiveDeviceType().Contains("Nexus 4") || GetActiveDeviceType().Contains("Nexus 7") || GetActiveDeviceType().Contains("I9505"))
                 Install.InstallIperfNexus(activeDevice, this);
-            else if ((GetActiveDeviceType().Contains("Harris") || (GetActiveDeviceType().Contains("bigcore"))) && GetAndroidVersion().Contains("4.4"))
+            else if ((GetActiveDeviceType().Contains("Harris") || (GetActiveDeviceType().Contains("bigcore"))) 
+                && GetAndroidVersion().Contains("4.4") || GetActiveDeviceType().Contains("mofd"))
                 Install.InstallIperfHsB(activeDevice, this);
             else if ((GetActiveDeviceType().Contains("Sofia")))
                 Install.InstallIperfSofia(activeDevice, this);
