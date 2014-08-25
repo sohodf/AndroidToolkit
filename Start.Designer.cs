@@ -69,6 +69,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button17 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -283,6 +284,7 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Honeydew;
+            this.groupBox3.Controls.Add(this.button17);
             this.groupBox3.Controls.Add(this.button16);
             this.groupBox3.Controls.Add(this.button11);
             this.groupBox3.Controls.Add(this.button9);
@@ -297,11 +299,11 @@
             // button16
             // 
             this.button16.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button16.Location = new System.Drawing.Point(122, 19);
+            this.button16.Location = new System.Drawing.Point(108, 19);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(102, 40);
+            this.button16.Size = new System.Drawing.Size(119, 28);
             this.button16.TabIndex = 21;
-            this.button16.Text = "Set Full Brightness";
+            this.button16.Text = "100% Brightness";
             this.ToolTip.SetToolTip(this.button16, "Set device brighness to 100%, ignoring GUI setting.");
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.button16_Click);
@@ -309,9 +311,9 @@
             // button11
             // 
             this.button11.Font = new System.Drawing.Font("Arial", 8F);
-            this.button11.Location = new System.Drawing.Point(122, 65);
+            this.button11.Location = new System.Drawing.Point(12, 84);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(102, 40);
+            this.button11.Size = new System.Drawing.Size(88, 25);
             this.button11.TabIndex = 20;
             this.button11.Text = "Single Core Mode";
             this.ToolTip.SetToolTip(this.button11, "Change XMM6321 to single core mode for improved stability.\r\nLasts until next rebo" +
@@ -322,9 +324,9 @@
             // button9
             // 
             this.button9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button9.Location = new System.Drawing.Point(10, 19);
+            this.button9.Location = new System.Drawing.Point(11, 19);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(102, 40);
+            this.button9.Size = new System.Drawing.Size(91, 28);
             this.button9.TabIndex = 19;
             this.button9.Text = "Install Iperf";
             this.button9.UseVisualStyleBackColor = true;
@@ -333,9 +335,9 @@
             // button10
             // 
             this.button10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button10.Location = new System.Drawing.Point(10, 65);
+            this.button10.Location = new System.Drawing.Point(12, 53);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(102, 40);
+            this.button10.Size = new System.Drawing.Size(90, 25);
             this.button10.TabIndex = 19;
             this.button10.Text = "Wake Screen";
             this.ToolTip.SetToolTip(this.button10, "Send keyevent 26 to the device");
@@ -494,6 +496,18 @@
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
+            // button17
+            // 
+            this.button17.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button17.Location = new System.Drawing.Point(108, 53);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(119, 25);
+            this.button17.TabIndex = 22;
+            this.button17.Text = "Set Stay Awake";
+            this.ToolTip.SetToolTip(this.button17, "Set \"stay awake\" under developer options on.");
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -578,6 +592,7 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button17;
 
     }
 }

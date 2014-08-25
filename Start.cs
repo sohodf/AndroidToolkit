@@ -768,6 +768,21 @@ namespace APK_Manager
 
         }
 
+        private void button17_Click(object sender, EventArgs e)
+        {
+            StayAwakeOn();
+        }
+
+        private void StayAwakeOn()
+        {
+            UpdateControls(false);
+            Log("Command sent");
+            Log("adb -s " + activeDevice + " shell svc power stayon true");
+            ExecuteShellCommandAsync("adb -s " + activeDevice + " shell svc power stayon true");
+            Log("Stay awake is now on");
+            UpdateControls(true);
+        }
+
 
 
       }
