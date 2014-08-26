@@ -582,6 +582,8 @@ namespace APK_Manager
             comboBox1.Items.Add("/sysem/data/");
             comboBox1.Items.Add("/system/lib/");
             comboBox1.Items.Add("/data/");
+            comboBox1.Items.Add("/sdcard/");
+
             //handle xmm push destination
             if (activeDeviceType.Contains("6321") || activeDeviceType.Contains("Nexus"))
             {
@@ -589,7 +591,6 @@ namespace APK_Manager
             }
             else if (activeDeviceType.Contains("6410") || activeDeviceType.Contains("6430") || activeDeviceType.Contains("I9505") || activeDeviceType.Contains("Harris"))
             {
-                comboBox1.Items.Add("/sdcard/");
             }
             comboBox1.SelectedIndex = 0;
 
