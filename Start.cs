@@ -203,6 +203,8 @@ namespace APK_Manager
                 button12.Enabled = true;
                 button13.Enabled = true;
                 button16.Enabled = true;
+                button17.Enabled = true;
+
 
             }
             else
@@ -217,6 +219,7 @@ namespace APK_Manager
                 button12.Enabled = false;
                 button13.Enabled = false;
                 button16.Enabled = false;
+                button17.Enabled = false;
             }
             
         }
@@ -589,9 +592,9 @@ namespace APK_Manager
             {
                 comboBox1.Items.Add("/storage/sdcard0/");
             }
-            else if (activeDeviceType.Contains("6410") || activeDeviceType.Contains("6430") || activeDeviceType.Contains("I9505") || activeDeviceType.Contains("Harris"))
-            {
-            }
+            //else if (activeDeviceType.Contains("6410") || activeDeviceType.Contains("6430") || activeDeviceType.Contains("I9505") || activeDeviceType.Contains("Harris"))
+            //{
+            //}
             comboBox1.SelectedIndex = 0;
 
 
