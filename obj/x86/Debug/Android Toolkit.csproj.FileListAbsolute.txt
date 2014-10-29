@@ -28,3 +28,4 @@ C:\Users\itl\Desktop\APK Manager\APK Manager\APK Manager\obj\x86\Debug\GenerateR
 C:\Users\itl\Desktop\APK Manager\APK Manager\APK Manager\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\itl\Desktop\APK Manager\APK Manager\APK Manager\obj\x86\Debug\APK Manager.exe.manifest
 C:\Users\itl\Desktop\APK Manager\APK Manager\APK Manager\obj\x86\Debug\APK Manager.application
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK_Manager.AndroidRemote.resources

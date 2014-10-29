@@ -204,7 +204,7 @@ namespace APK_Manager
                 button13.Enabled = true;
                 button16.Enabled = true;
                 button17.Enabled = true;
-
+                button18.Enabled = true;
 
             }
             else
@@ -220,6 +220,7 @@ namespace APK_Manager
                 button13.Enabled = false;
                 button16.Enabled = false;
                 button17.Enabled = false;
+                button18.Enabled = false;
             }
             
         }
@@ -785,6 +786,12 @@ namespace APK_Manager
             ExecuteShellCommandAsync("adb -s " + activeDevice + " shell svc power stayon true");
             Log("Stay awake is now on");
             UpdateControls(true);
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            AndroidRemote AR = new AndroidRemote();
+            AR.Show();
         }
 
 

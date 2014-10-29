@@ -83,6 +83,12 @@
     <Compile Include="ADB command.Designer.cs">
       <DependentUpon>ADB command.cs</DependentUpon>
     </Compile>
+    <Compile Include="AndroidRemote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AndroidRemote.Designer.cs">
+      <DependentUpon>AndroidRemote.cs</DependentUpon>
+    </Compile>
     <Compile Include="Install.cs" />
     <Compile Include="ShellAPI.cs" />
     <Compile Include="Start.cs">
@@ -101,6 +107,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ADB command.resx">
       <DependentUpon>ADB command.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AndroidRemote.resx">
+      <DependentUpon>AndroidRemote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Start.resx">
       <DependentUpon>Start.cs</DependentUpon>

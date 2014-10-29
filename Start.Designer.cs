@@ -49,6 +49,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button17 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -69,7 +70,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button17 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -284,6 +285,7 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Honeydew;
+            this.groupBox3.Controls.Add(this.button18);
             this.groupBox3.Controls.Add(this.button17);
             this.groupBox3.Controls.Add(this.button16);
             this.groupBox3.Controls.Add(this.button11);
@@ -295,6 +297,18 @@
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Platform";
+            // 
+            // button17
+            // 
+            this.button17.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button17.Location = new System.Drawing.Point(108, 53);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(119, 25);
+            this.button17.TabIndex = 22;
+            this.button17.Text = "Set Stay Awake";
+            this.ToolTip.SetToolTip(this.button17, "Set \"stay awake\" under developer options on.");
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // button16
             // 
@@ -496,17 +510,18 @@
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
-            // button17
+            // button18
             // 
-            this.button17.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button17.Location = new System.Drawing.Point(108, 53);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(119, 25);
-            this.button17.TabIndex = 22;
-            this.button17.Text = "Set Stay Awake";
-            this.ToolTip.SetToolTip(this.button17, "Set \"stay awake\" under developer options on.");
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.button18.Font = new System.Drawing.Font("Arial", 8F);
+            this.button18.Location = new System.Drawing.Point(108, 84);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(119, 25);
+            this.button18.TabIndex = 23;
+            this.button18.Text = "Android Remote";
+            this.ToolTip.SetToolTip(this.button18, "Change XMM6321 to single core mode for improved stability.\r\nLasts until next rebo" +
+        "ot.");
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // Start
             // 
@@ -593,6 +608,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button18;
 
     }
 }
