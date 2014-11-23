@@ -35,7 +35,7 @@ namespace APK_Manager
         public static void InstallNotSysapp(string ip, Start main)
         {
             main.Log("Using adb install...");
-            main.Log(main.ExecuteShellCommand("adb -s " + ip + " install " + main.strFileName));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " install -r " + main.strFileName));
         }
 
         //this method installls the apk to Nexus4 Device

@@ -192,7 +192,7 @@ namespace APK_Manager
         {
             if (ctrlStat)
             {
-                if (!GetAndroidVersion().Contains("4.4"))
+                if (!GetAndroidVersion().Contains("4.4") || GetAndroidVersion().Contains("5.0"))
                     install.Enabled = true;
                 openApkBtn.Enabled = true;
                 button4.Enabled = true;
@@ -295,7 +295,7 @@ namespace APK_Manager
             comboBox1.Enabled = false;
             filesToPush = null;
             //handles no special instalaltion flow on KK
-            if (GetAndroidVersion().Contains("4.4"))
+            if (GetAndroidVersion().Contains("4.4") || GetAndroidVersion().Contains("5.0"))
             {
                 install.Enabled = false;
                 Log("Only adb installtion is supported on android 4.4 and up");
@@ -376,7 +376,7 @@ namespace APK_Manager
                 Log("No APK selected" + Environment.NewLine);
             else
             {
-                if (os.Contains("4.4"))
+                if (os.Contains("4.4") || os.Contains("5.0"))
                 {
                     Log("KK and up only supports adb install with a system key singed app");
                     Log("Attempting to use adb install");
@@ -434,7 +434,7 @@ namespace APK_Manager
                 else
                 {
                     UpdateControls(false);
-                    if (!GetAndroidVersion().Contains("4.4"))
+                    if (!(GetAndroidVersion().Contains("4.4") || GetAndroidVersion().Contains("5.0")))
                     {
                         string message = "Warning - This will not install the app as root, preventing access to aiplane mode, reboot etc. \n Do you want to continue?";
                         DialogResult dr = MessageBox.Show(message, "warning", MessageBoxButtons.YesNo);
@@ -483,8 +483,8 @@ namespace APK_Manager
                 Install.InstallIperfXMM(activeDevice, this);
             else if (GetActiveDeviceType().Contains("Nexus 4") || GetActiveDeviceType().Contains("Nexus 7") || GetActiveDeviceType().Contains("I9505"))
                 Install.InstallIperfNexus(activeDevice, this);
-            else if ((GetActiveDeviceType().Contains("Harris") || (GetActiveDeviceType().Contains("bigcore"))) 
-                && GetAndroidVersion().Contains("4.4") || GetActiveDeviceType().Contains("mofd"))
+            else if ((GetActiveDeviceType().Contains("Harris") || (GetActiveDeviceType().Contains("bigcore")))
+                && GetAndroidVersion().Contains("4.4") || GetAndroidVersion().Contains("5.0") || GetActiveDeviceType().Contains("mofd"))
                 Install.InstallIperfHsB(activeDevice, this);
             else if ((GetActiveDeviceType().Contains("Sofia")))
                 Install.InstallIperfSofia(activeDevice, this);
@@ -611,7 +611,7 @@ namespace APK_Manager
         private void MountSys()
         {
             UpdateControls(false);
-            if (GetAndroidVersion().Contains("4.4"))
+            if (GetAndroidVersion().Contains("4.4") || GetAndroidVersion().Contains("5.0"))
             {   
                 Log("Sending command");
                 Log("adb -s " + activeDevice + " shell su -c " + (char)34 + "mount -wo remount /system" + (char)34);
@@ -727,7 +727,7 @@ namespace APK_Manager
                 this.Invoke(new Action(() => { Log(ExecuteShellCommand("adb -s " + activeDevice + " shell rm /system/priv-app/com.intel.mwg.apk")); }));             
             }
 
-            else if (GetAndroidVersion().Contains("4.4"))
+            else if (GetAndroidVersion().Contains("4.4") || GetAndroidVersion().Contains("5.0"))
             {
                 this.Invoke(new Action(() => { Log("Attempting to mount /system as r/w"); }));
                 this.Invoke(new Action(() => { Log("This might take some time..."); }));

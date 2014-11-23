@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="APK Manager.exe" size="1752064">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="APK Manager.exe" size="1752576">
       <assemblyIdentity name="APK Manager" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>KflT/qxsBdCftBHHxVA7sJ8bM/U=</dsig:DigestValue>
+        <dsig:DigestValue>LqU1ipU5C/8b9w6SihyqmjzgtOo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
