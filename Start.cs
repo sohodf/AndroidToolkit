@@ -612,12 +612,12 @@ namespace APK_Manager
         //mounts /system as r/w
         private void MountSys()
         {
-            UpdateControls(false);
             if (GetAndroidVersion().Contains("4.4"))
             {   
                 Log("Sending command");
                 Log("adb -s " + activeDevice + " shell su -c " + (char)34 + "mount -wo remount /system" + (char)34);
                 Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c " + (char)34 + "mount -wo remount /system" + (char)34));
+            UpdateControls(false);
             }
             else
             {

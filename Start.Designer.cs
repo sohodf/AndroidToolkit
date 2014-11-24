@@ -49,6 +49,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button18 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -70,7 +71,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button18 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -298,6 +298,19 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Platform";
             // 
+            // button18
+            // 
+            this.button18.Font = new System.Drawing.Font("Arial", 8F);
+            this.button18.Location = new System.Drawing.Point(108, 84);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(119, 25);
+            this.button18.TabIndex = 23;
+            this.button18.Text = "Android Remote";
+            this.ToolTip.SetToolTip(this.button18, "Change XMM6321 to single core mode for improved stability.\r\nLasts until next rebo" +
+        "ot.");
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
             // button17
             // 
             this.button17.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
@@ -510,19 +523,6 @@
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
-            // button18
-            // 
-            this.button18.Font = new System.Drawing.Font("Arial", 8F);
-            this.button18.Location = new System.Drawing.Point(108, 84);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(119, 25);
-            this.button18.TabIndex = 23;
-            this.button18.Text = "Android Remote";
-            this.ToolTip.SetToolTip(this.button18, "Change XMM6321 to single core mode for improved stability.\r\nLasts until next rebo" +
-        "ot.");
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -552,7 +552,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Start";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Android Toolkit by WISE JER 2.0";
+            this.Text = "Android Toolkit by WISE JER 2.1";
             this.Load += new System.EventHandler(this.Start_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
