@@ -202,6 +202,34 @@ namespace APK_Manager
             main.Log("Local iperf file not deleted");
         }
 
+        //this method installs iperf on lollipop os. should be used as generic install for x86 platforms without su.
+        public static void InstallIperfLP(string ip, Start main)
+        {
+            main.Log("Device selected: " + main.activeDeviceType + "@" + ip);
+            string iperfDir = @"C:/";
+            File.WriteAllBytes(iperfDir + "iperf", Properties.Resources.iperfX86);
+            main.Log("Trying to mount system as r/w");
+            main.Log("adb root");
+            main.Log("adb remount");
+            main.Log(main.ExecuteShellCommand("adb root"));
+            main.Log(main.ExecuteShellCommand("adb remount"));
+            main.Log("Trying to push iperf");
+            main.Log(("adb -s " + ip + " push c:\\iperf /system/bin/"));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " push c:\\iperf /system/bin/"));
+            main.Log(("adb -s " + ip + " shell chmod 777 /system/bin/iperf"));
+            main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell chmod 777 /system/bin/iperf"));
+            main.Log("Iperf for X86 installed");
+            main.Log("Please note that iperf is not PIE compatible, and it WILL NOT run on PIE enabled images");
+            main.Log("Delete local iperf file");
+            if (File.Exists(@"C:\iperf"))
+            {
+                File.Delete(@"C:\iperf");
+                main.Log("Local iperf file deleted");
+                return;
+            }
+            main.Log("Local iperf file not deleted");
+        }
+
         //this method installs adb on the controller machine
         public static void InstallADB(Start main)
         {

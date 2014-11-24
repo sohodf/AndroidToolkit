@@ -1,18 +1,3 @@
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\bin\Debug\APK Manager.exe.manifest
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\bin\Debug\APK Manager.application
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\bin\Debug\APK Manager.exe
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\bin\Debug\APK Manager.pdb
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK_Manager.Start.resources
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK_Manager.tcpADB.resources
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK_Manager.Properties.Resources.resources
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\GenerateResource.read.1.tlog
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\GenerateResource.write.1.tlog
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.exe.manifest
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.application
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.exe
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.pdb
-C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK_Manager.ADB.resources
 C:\Users\itl\Desktop\APK Manager\APK Manager\APK Manager\obj\x86\Debug\APK Manager.exe
 C:\Users\itl\Desktop\APK Manager\APK Manager\APK Manager\obj\x86\Debug\APK Manager.pdb
 C:\Users\itl\Desktop\APK Manager\APK Manager\APK Manager\bin\Debug\APK Manager.exe.manifest
@@ -28,4 +13,19 @@ C:\Users\itl\Desktop\APK Manager\APK Manager\APK Manager\obj\x86\Debug\GenerateR
 C:\Users\itl\Desktop\APK Manager\APK Manager\APK Manager\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\itl\Desktop\APK Manager\APK Manager\APK Manager\obj\x86\Debug\APK Manager.exe.manifest
 C:\Users\itl\Desktop\APK Manager\APK Manager\APK Manager\obj\x86\Debug\APK Manager.application
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\bin\Debug\APK Manager.exe.manifest
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\bin\Debug\APK Manager.application
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\bin\Debug\APK Manager.exe
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\bin\Debug\APK Manager.pdb
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK_Manager.ADB.resources
 C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK_Manager.AndroidRemote.resources
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK_Manager.Start.resources
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK_Manager.tcpADB.resources
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK_Manager.Properties.Resources.resources
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.exe.manifest
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.application
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.exe
+C:\Users\itl\Documents\Visual Studio 2010\Projects\APK Manager\APK Manager\obj\x86\Debug\APK Manager.pdb

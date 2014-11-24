@@ -192,8 +192,8 @@ namespace APK_Manager
         {
             if (ctrlStat)
             {
-                if (!GetAndroidVersion().Contains("4.4") || GetAndroidVersion().Contains("5.0"))
-                    install.Enabled = true;
+                if (!GetAndroidVersion().Contains("4.4") && !GetAndroidVersion().Contains("5."))
+                install.Enabled = true;
                 openApkBtn.Enabled = true;
                 button4.Enabled = true;
                 button5.Enabled = true;
@@ -484,10 +484,12 @@ namespace APK_Manager
             else if (GetActiveDeviceType().Contains("Nexus 4") || GetActiveDeviceType().Contains("Nexus 7") || GetActiveDeviceType().Contains("I9505"))
                 Install.InstallIperfNexus(activeDevice, this);
             else if ((GetActiveDeviceType().Contains("Harris") || (GetActiveDeviceType().Contains("bigcore")))
-                && GetAndroidVersion().Contains("4.4") || GetAndroidVersion().Contains("5.0") || GetActiveDeviceType().Contains("mofd"))
+                && GetAndroidVersion().Contains("4.4"))
                 Install.InstallIperfHsB(activeDevice, this);
             else if ((GetActiveDeviceType().Contains("Sofia")))
                 Install.InstallIperfSofia(activeDevice, this);
+            else if (GetAndroidVersion().Contains("5.0"))
+                Install.InstallIperfLP(activeDevice, this);
             else
                 Log("Device not supported for iperf installation!");
             UpdateControls(true);
@@ -611,7 +613,7 @@ namespace APK_Manager
         private void MountSys()
         {
             UpdateControls(false);
-            if (GetAndroidVersion().Contains("4.4") || GetAndroidVersion().Contains("5.0"))
+            if (GetAndroidVersion().Contains("4.4"))
             {   
                 Log("Sending command");
                 Log("adb -s " + activeDevice + " shell su -c " + (char)34 + "mount -wo remount /system" + (char)34);
@@ -620,8 +622,10 @@ namespace APK_Manager
             else
             {
                 Log("Sending command");
-                Log("adb -s " + activeDevice + " shell su -c mount -wo remount /system");
-                Log(ExecuteShellCommand("adb -s " + activeDevice + " shell su -c mount -wo remount /system"));
+                Log("adb root");
+                Log(ExecuteShellCommand("adb root"));
+                Log("adb remount");
+                Log(ExecuteShellCommand("adb remount"));
             }
             UpdateControls(true);
 
