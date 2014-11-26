@@ -343,7 +343,7 @@ namespace APK_Manager
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "APK files (*.apk)|*.apk";
-            dialog.InitialDirectory = "C:\\ProgramData\\ITE\\Test Content\\Test Libraries\\AndroidLib\\Tools\\AndroidExecutionApp";
+            dialog.InitialDirectory = "C:\\ProgramData\\ITE\\Test Content\\Test Libraries\\Infra\\AndroidLib\\Tools\\AndroidExecutionApp";
             dialog.Title = "Select the apk to install";
             if (dialog.ShowDialog() == DialogResult.OK)
                 strFileName = dialog.FileName;

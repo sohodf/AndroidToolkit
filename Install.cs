@@ -219,7 +219,7 @@ namespace APK_Manager
             main.Log(("adb -s " + ip + " shell chmod 777 /system/bin/iperf"));
             main.Log(main.ExecuteShellCommand("adb -s " + ip + " shell chmod 777 /system/bin/iperf"));
             main.Log("Iperf for X86 installed");
-            main.Log("Please note that iperf is not PIE compatible, and it WILL NOT run on PIE enabled images");
+            //main.Log("Please note that iperf is not PIE compatible, and it WILL NOT run on PIE enabled images");
             main.Log("Delete local iperf file");
             if (File.Exists(@"C:\iperf"))
             {
